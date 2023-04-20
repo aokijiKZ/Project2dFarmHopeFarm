@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/small_unlimit_energy_potion_icon.tres" id="1_fqvcp"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="2_q506r"]
+[ext_resource type="Script" path="res://Item/ItemStrategyUse.gd" id="3_16j3y"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="4_qunxw"]
+
+[sub_resource type="Resource" id="Resource_v87vs"]
+script = ExtResource("3_16j3y")
+consume_heal_hp = 0
+consume_heal_stamina = 0
+consume_unlimit_stamina_time_sec = 5
+is_comsume_on_use = true
+
+[sub_resource type="Resource" id="Resource_d0653"]
+script = ExtResource("4_qunxw")
+buy_price = 10
+
+[resource]
+script = ExtResource("2_q506r")
+item_name = "นํ้าดื่มบริสุทธิ์เล็ก"
+description = ""
+quantity = 1
+icon = ExtResource("1_fqvcp")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_v87vs"), SubResource("Resource_d0653")])

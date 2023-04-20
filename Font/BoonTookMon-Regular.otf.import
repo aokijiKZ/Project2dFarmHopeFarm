@@ -1,0 +1,75 @@
+[remap]
+
+importer="font_data_dynamic"
+type="FontFile"
+uid="uid://bxo8v4kc65o2e"
+path="res://.godot/imported/BoonTookMon-Regular.otf-14b93458b98eb697d986fedb6dbd8a74.fontdata"
+
+[deps]
+
+source_file="res://Font/BoonTookMon-Regular.otf"
+dest_files=["res://.godot/imported/BoonTookMon-Regular.otf-14b93458b98eb697d986fedb6dbd8a74.fontdata"]
+
+[params]
+
+Rendering=null
+antialiasing=1
+generate_mipmaps=true
+multichannel_signed_distance_field=false
+msdf_pixel_range=8
+msdf_size=48
+allow_system_fallback=true
+force_autohinter=false
+hinting=1
+subpixel_positioning=1
+oversampling=0.0
+Fallbacks=null
+fallbacks=[]
+Compress=null
+compress=true
+preload=[{
+"chars": [],
+"glyphs": [],
+"name": "18",
+"size": Vector2i(18, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "4",
+"size": Vector2i(4, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "2",
+"size": Vector2i(2, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "6",
+"size": Vector2i(6, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "8",
+"size": Vector2i(8, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "10",
+"size": Vector2i(10, 0),
+"variation_embolden": 0.0
+}, {
+"chars": [],
+"glyphs": [],
+"name": "12",
+"size": Vector2i(12, 0),
+"variation_embolden": 0.0
+}]
+language_support={}
+script_support={}
+opentype_features={}

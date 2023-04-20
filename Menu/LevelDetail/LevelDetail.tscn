@@ -1,0 +1,322 @@
+[gd_scene load_steps=20 format=3 uid="uid://1eujsspty7ur"]
+
+[ext_resource type="Texture2D" uid="uid://d4os07peodrq" path="res://Menu/LevelDetail/mapDetail.png" id="1_q0nxt"]
+[ext_resource type="Script" path="res://Menu/LevelDetail/LevelDetail.gd" id="1_ulpqu"]
+[ext_resource type="Texture2D" uid="uid://cl0vcbeeeks67" path="res://Menu/LevelDetail/bg.png" id="2_t74g5"]
+[ext_resource type="PackedScene" uid="uid://crep0hfussfrl" path="res://MyButton/MyExitMenuButton.tscn" id="3_8dtyh"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="4_timhr"]
+[ext_resource type="Texture2D" uid="uid://bqw718i255vx2" path="res://Menu/LevelDetail/bg_picture.png" id="5_4n4ge"]
+[ext_resource type="Texture2D" uid="uid://388xih2atorb" path="res://Menu/LevelDetail/bg_play.png" id="5_trc4j"]
+[ext_resource type="Texture2D" uid="uid://cuf4twojwpwuv" path="res://Menu/LevelDetail/bg_detailText.png" id="6_ehe8x"]
+[ext_resource type="Texture2D" uid="uid://cy2wxnwy2s4ii" path="res://Menu/LevelDetail/bg_playChoose.png" id="6_kkkvu"]
+[ext_resource type="PackedScene" uid="uid://desjwy18fy7s8" path="res://MyLabel/MyLabel.tscn" id="7_ipky7"]
+[ext_resource type="Texture2D" uid="uid://crcdtxme6y7c0" path="res://Menu/LevelDetail/bg_mission.png" id="9_mxr8g"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="10_1wsbm"]
+[ext_resource type="Texture2D" uid="uid://cxtachif3ob70" path="res://Menu/LevelDetail/icon_history1.png" id="11_veiph"]
+[ext_resource type="Texture2D" uid="uid://1gobsqvgyd00" path="res://Menu/LevelDetail/icon_history2.png" id="12_s485w"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6mfxw"]
+texture = ExtResource("5_trc4j")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_s5pt1"]
+texture = ExtResource("6_kkkvu")
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_sbyuo"]
+
+[sub_resource type="Gradient" id="Gradient_3ubxv"]
+
+[sub_resource type="GradientTexture1D" id="GradientTexture1D_ll0e6"]
+gradient = SubResource("Gradient_3ubxv")
+
+[node name="LevelDetail" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_ulpqu")
+
+[node name="MapDetail" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 91)
+texture = ExtResource("1_q0nxt")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -100.5
+offset_top = -57.0
+offset_right = 100.5
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_t74g5")
+stretch_mode = 3
+
+[node name="ExitMenuButton" parent="." instance=ExtResource("3_8dtyh")]
+layout_mode = 1
+offset_left = 84.0
+offset_top = -52.0
+offset_right = 101.0
+offset_bottom = -42.0
+
+[node name="PlayButton" parent="." instance=ExtResource("4_timhr")]
+layout_mode = 1
+offset_left = -33.0
+offset_top = 43.0
+offset_right = 33.0
+offset_bottom = 57.0
+theme_override_font_sizes/font_size = 8
+theme_override_styles/normal = SubResource("StyleBoxTexture_6mfxw")
+theme_override_styles/hover = SubResource("StyleBoxTexture_s5pt1")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_6mfxw")
+theme_override_styles/disabled = SubResource("StyleBoxEmpty_sbyuo")
+text = "เล่น"
+
+[node name="Section1" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -40.5
+offset_top = -28.0
+offset_right = 40.5
+offset_bottom = 28.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="bg" type="TextureRect" parent="Section1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -17.0
+offset_right = 80.0
+offset_bottom = 31.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("9_mxr8g")
+stretch_mode = 3
+
+[node name="Label" type="Label" parent="Section1/bg"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -32.0
+offset_top = -16.0
+offset_right = 32.0
+offset_bottom = 16.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_constants/line_spacing = 0
+theme_override_font_sizes/font_size = 5
+text = "เป้าหมาย ปลูกผัก
+ทำออกซิเจนให้ถึง 10 หน่วย
+ภายในระยะเวลา 30 วินาที"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Section2" type="Control" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -20.0
+offset_right = 82.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 1
+
+[node name="bg_text_1" type="TextureRect" parent="Section2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = -13.0
+offset_right = 81.0
+offset_bottom = 27.0
+texture = ExtResource("6_ehe8x")
+stretch_mode = 3
+
+[node name="Label1" type="Label" parent="Section2/bg_text_1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -6.0
+offset_right = 43.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 4
+vertical_alignment = 1
+clip_text = true
+
+[node name="bg_text_2" type="TextureRect" parent="Section2"]
+layout_mode = 0
+offset_left = 3.0
+offset_top = 1.0
+offset_right = 81.0
+offset_bottom = 41.0
+texture = ExtResource("6_ehe8x")
+stretch_mode = 3
+
+[node name="Label2" type="Label" parent="Section2/bg_text_2"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -6.0
+offset_right = 43.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 4
+vertical_alignment = 1
+clip_text = true
+
+[node name="bg_text_3" type="TextureRect" parent="Section2"]
+layout_mode = 0
+offset_left = 2.0
+offset_top = 15.0
+offset_right = 80.0
+offset_bottom = 55.0
+texture = ExtResource("6_ehe8x")
+stretch_mode = 3
+
+[node name="Label3" type="Label" parent="Section2/bg_text_3"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -6.0
+offset_right = 43.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 4
+vertical_alignment = 1
+clip_text = true
+
+[node name="bg_text_4" type="TextureRect" parent="Section2"]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 29.0
+offset_right = 79.0
+offset_bottom = 69.0
+texture = ExtResource("6_ehe8x")
+stretch_mode = 3
+
+[node name="Label4" type="Label" parent="Section2/bg_text_4"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -27.0
+offset_top = -6.0
+offset_right = 43.0
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 4
+vertical_alignment = 1
+clip_text = true
+
+[node name="bg_pic" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -17.0
+offset_right = -8.0
+offset_bottom = 32.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_4n4ge")
+stretch_mode = 2
+
+[node name="level_preview" type="TextureRect" parent="bg_pic"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -25.0
+offset_top = -17.5
+offset_right = 25.0
+offset_bottom = 16.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = SubResource("GradientTexture1D_ll0e6")
+expand_mode = 1
+stretch_mode = 6
+
+[node name="TitleLabel" parent="." instance=ExtResource("7_ipky7")]
+layout_mode = 1
+offset_left = -42.0
+offset_top = -50.0
+offset_right = 42.0
+offset_bottom = -26.0
+
+[node name="SwapSectionButton" parent="." instance=ExtResource("10_1wsbm")]
+layout_mode = 1
+offset_left = 54.0
+offset_top = 41.0
+offset_right = 84.0
+offset_bottom = 58.0
+texture_normal = ExtResource("11_veiph")
+texture_pressed = ExtResource("11_veiph")
+texture_hover = ExtResource("12_s485w")
+
+[node name="card_text" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -32.5
+offset_top = -34.0
+offset_right = 32.5
+offset_bottom = -24.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 4
+text = "รางวัลหากสำเร็จ 100% จะได้รับการ์ด "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[connection signal="after_play_press_sound" from="ExitMenuButton" to="." method="_on_exit_menu_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="PlayButton" to="." method="_on_play_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="SwapSectionButton" to="." method="_on_swap_section_button_after_play_press_sound"]

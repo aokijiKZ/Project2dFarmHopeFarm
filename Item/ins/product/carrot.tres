@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3]
+
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_ff1yy"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_icon.tres" id="1_h4u5k"]
+[ext_resource type="Script" path="res://Item/ItemStrategySell.gd" id="3_8oslf"]
+
+[sub_resource type="Resource" id="Resource_43arp"]
+script = ExtResource("3_8oslf")
+sell_price = 8
+
+[resource]
+script = ExtResource("1_ff1yy")
+item_name = "แครอท"
+description = ""
+quantity = 1
+icon = ExtResource("1_h4u5k")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_43arp")])

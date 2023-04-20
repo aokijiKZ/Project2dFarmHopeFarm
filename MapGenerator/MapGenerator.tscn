@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://cv2yf5ps32hfr"]
+
+[ext_resource type="Script" path="res://MapGenerator/MapGenerator.gd" id="1_mnhq8"]
+[ext_resource type="TileSet" uid="uid://dpoyrhl5qd2cq" path="res://MapGenerator/tileset.tres" id="2_fofoe"]
+
+[node name="MapGenerator" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_mnhq8")
+tileset = ExtResource("2_fofoe")
+ground_patch_size = Vector2(5, 5)

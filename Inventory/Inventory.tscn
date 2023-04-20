@@ -1,0 +1,26 @@
+[gd_scene load_steps=2 format=3 uid="uid://k4rlrwrqvumx"]
+
+[ext_resource type="Script" path="res://Inventory/Inventory.gd" id="1_41xkl"]
+
+[node name="Inventory" type="Node2D"]
+script = ExtResource("1_41xkl")
+
+[node name="slot_0" type="Node" parent="."]
+
+[node name="slot_1" type="Node" parent="."]
+
+[node name="slot_2" type="Node" parent="."]
+
+[node name="slot_3" type="Node" parent="."]
+
+[node name="slot_4" type="Node" parent="."]
+
+[node name="slot_5" type="Node" parent="."]
+
+[node name="slot_6" type="Node" parent="."]
+
+[node name="slot_7" type="Node" parent="."]
+
+[node name="slot_8" type="Node" parent="."]
+
+[node name="slot_9" type="Node" parent="."]

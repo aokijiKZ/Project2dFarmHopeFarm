@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_icon.tres" id="1_5oys1"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_i71p4"]
+[ext_resource type="Script" path="res://Item/ItemStrategySell.gd" id="2_r2b5l"]
+
+[sub_resource type="Resource" id="Resource_ojfvm"]
+script = ExtResource("2_r2b5l")
+sell_price = 32
+
+[resource]
+script = ExtResource("1_i71p4")
+item_name = "สตอเบอรี่"
+description = ""
+quantity = 1
+icon = ExtResource("1_5oys1")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_ojfvm")])

@@ -1,0 +1,159 @@
+[gd_scene load_steps=9 format=3 uid="uid://q4o5ge6uoiix"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Events/Character/settings_portraits.gd" id="2"]
+[ext_resource type="StyleBox" uid="uid://dmsjhgv22dns8" path="res://addons/dialogic/Editor/Common/TitleBgStylebox.tres" id="2_i6l15"]
+[ext_resource type="PackedScene" uid="uid://dpwhshre1n4t6" path="res://addons/dialogic/Editor/Events/Fields/ComplexPicker.tscn" id="3"]
+[ext_resource type="FontFile" uid="uid://bxo8v4kc65o2e" path="res://Font/BoonTookMon-Regular.otf" id="3_814xf"]
+[ext_resource type="Script" path="res://addons/dialogic/Editor/Settings/HintLabelStylingScript.gd" id="3_jknrx"]
+[ext_resource type="PackedScene" uid="uid://7mvxuaulctcq" path="res://addons/dialogic/Editor/Events/Fields/FilePicker.tscn" id="4_mdfuu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_dl5oh"]
+font = ExtResource("3_814xf")
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dxxws"]
+content_margin_left = 4.0
+content_margin_top = 0.0
+content_margin_right = 4.0
+content_margin_bottom = 0.0
+bg_color = Color(0.1, 0.1, 0.1, 0.6)
+border_width_bottom = 2
+border_color = Color(0, 0, 0, 0.6)
+corner_radius_top_left = 3
+corner_radius_top_right = 3
+corner_radius_bottom_right = 3
+corner_radius_bottom_left = 3
+corner_detail = 5
+
+[node name="Portraits" type="HBoxContainer"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+script = ExtResource("2")
+
+[node name="General" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Title" type="Label" parent="General"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_i6l15")
+text = "Portrait Settings"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="General"]
+layout_mode = 2
+
+[node name="Label" type="Label" parent="General/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Portraits mode"
+
+[node name="PortraitMode" type="OptionButton" parent="General/HBoxContainer"]
+unique_name_in_owner = true
+layout_mode = 2
+item_count = 2
+selected = 0
+popup/item_0/text = "Visual Novel Mode"
+popup/item_0/id = 0
+popup/item_1/text = "RPG Mode"
+popup/item_1/id = 1
+
+[node name="Info" type="Label" parent="General"]
+layout_mode = 2
+text = "Visual Novel: Multiple characters can show up in different positions at the same time. They have to be joined and leaved manually.
+
+RPG: Only the character that speaks is visible (always in the same location). Does not have to be joined/left manually. Uses only position_idx 1."
+label_settings = SubResource("LabelSettings_dl5oh")
+autowrap_mode = 3
+script = ExtResource("3_jknrx")
+
+[node name="VSeparator" type="VSeparator" parent="."]
+layout_mode = 2
+
+[node name="Animations" type="VBoxContainer" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+size_flags_stretch_ratio = 0.5
+
+[node name="Title" type="Label" parent="Animations"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_i6l15")
+text = "Animations
+"
+
+[node name="HBoxContainer" type="HBoxContainer" parent="Animations"]
+layout_mode = 2
+
+[node name="Label2" type="Label" parent="Animations/HBoxContainer"]
+layout_mode = 2
+text = "Custom anims folder"
+
+[node name="CustomAnimationsFolder" parent="Animations/HBoxContainer" instance=ExtResource("4_mdfuu")]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_styles/panel = SubResource("StyleBoxFlat_dxxws")
+file_mode = 2
+
+[node name="HSeparator" type="HSeparator" parent="Animations"]
+layout_mode = 2
+
+[node name="Title2" type="Label" parent="Animations"]
+layout_mode = 2
+theme_override_styles/normal = ExtResource("2_i6l15")
+text = "Default Animations
+"
+
+[node name="DefaultIn" type="HBoxContainer" parent="Animations"]
+layout_mode = 2
+
+[node name="Label3" type="Label" parent="Animations/DefaultIn"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Default Join"
+
+[node name="JoinDefault" parent="Animations/DefaultIn" instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+enable_pretty_name = true
+
+[node name="JoinDefaultLength" type="SpinBox" parent="Animations/DefaultIn"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.1
+
+[node name="JoinDefaultWait" type="CheckButton" parent="Animations/DefaultIn"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Wait:"
+
+[node name="DefaultOut" type="HBoxContainer" parent="Animations"]
+layout_mode = 2
+
+[node name="Label4" type="Label" parent="Animations/DefaultOut"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Default Leave"
+
+[node name="LeaveDefault" parent="Animations/DefaultOut" instance=ExtResource("3")]
+unique_name_in_owner = true
+layout_mode = 2
+enable_pretty_name = true
+
+[node name="LeaveDefaultLength" type="SpinBox" parent="Animations/DefaultOut"]
+unique_name_in_owner = true
+layout_mode = 2
+step = 0.1
+
+[node name="LeaveDefaultWait" type="CheckButton" parent="Animations/DefaultOut"]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Wait:"
+
+[connection signal="item_selected" from="General/HBoxContainer/PortraitMode" to="." method="_on_PortraitMode_item_selected"]
+[connection signal="value_changed" from="Animations/DefaultIn/JoinDefault" to="." method="_on_JoinDefault_value_changed"]
+[connection signal="value_changed" from="Animations/DefaultIn/JoinDefaultLength" to="." method="_on_JoinDefaultLength_value_changed"]
+[connection signal="toggled" from="Animations/DefaultIn/JoinDefaultWait" to="." method="_on_JoinDefaultWait_toggled"]
+[connection signal="value_changed" from="Animations/DefaultOut/LeaveDefault" to="." method="_on_LeaveDefault_value_changed"]
+[connection signal="value_changed" from="Animations/DefaultOut/LeaveDefaultLength" to="." method="_on_LeaveDefaultLength_value_changed"]
+[connection signal="toggled" from="Animations/DefaultOut/LeaveDefaultWait" to="." method="_on_LeaveDefaultWait_toggled"]

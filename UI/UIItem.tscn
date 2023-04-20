@@ -1,0 +1,118 @@
+[gd_scene load_steps=4 format=3 uid="uid://dxs8je7sv7kcg"]
+
+[ext_resource type="Texture2D" uid="uid://b63631sqmtn20" path="res://UI/img/bg_item (1).png" id="1_gtus3"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="2_c7x8x"]
+[ext_resource type="Script" path="res://UI/UIItem.gd" id="2_eb4t2"]
+
+[node name="UIItem" type="TextureRect"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -37.0
+offset_top = -14.5
+offset_right = 37.0
+offset_bottom = 14.5
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gtus3")
+stretch_mode = 5
+script = ExtResource("2_eb4t2")
+
+[node name="Icon" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 5.0
+offset_top = -9.5
+offset_right = 27.0
+offset_bottom = 11.5
+grow_vertical = 2
+stretch_mode = 5
+
+[node name="section_normal" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ItemNameLabel" type="Label" parent="section_normal"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 5.0
+offset_right = 71.0
+offset_bottom = 24.0
+theme_override_font_sizes/font_size = 6
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="section_use" type="Control" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 0.5
+offset_bottom = 0.5
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+
+[node name="ItemNameLabel" type="Label" parent="section_use"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 2.0
+offset_right = 71.0
+offset_bottom = 12.0
+theme_override_font_sizes/font_size = 4
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UseButton" parent="section_use" instance=ExtResource("2_c7x8x")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -33.0
+offset_top = -1.5
+offset_right = -9.0
+offset_bottom = 10.5
+grow_horizontal = 0
+theme_override_font_sizes/font_size = 4
+
+[node name="Label" type="Label" parent="section_use/UseButton"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.729412, 0.729412, 0.729412, 1)
+theme_override_font_sizes/font_size = 6
+text = "ใช้"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Quantity" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 2
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 26.0
+offset_top = -9.5
+offset_right = 32.0
+offset_bottom = -2.5
+grow_vertical = 0
+theme_override_font_sizes/font_size = 4
+
+[connection signal="after_play_press_sound" from="section_use/UseButton" to="." method="_on_use_button_after_play_press_sound"]

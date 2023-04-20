@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://yt78ienq0mfx"]
+
+[ext_resource type="Texture2D" uid="uid://065vb2td478c" path="res://UI/img/bg_bag.png" id="1_adgi4"]
+[ext_resource type="PackedScene" uid="uid://dxs8je7sv7kcg" path="res://UI/UIItem.tscn" id="2_eq252"]
+[ext_resource type="Script" path="res://UI/InventoryBag.gd" id="2_qr4h7"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="3_6qbpn"]
+[ext_resource type="Texture2D" uid="uid://b8c4d1a71krto" path="res://UI/img/bt_close.png" id="4_x8x5d"]
+[ext_resource type="Texture2D" uid="uid://c2de4u26hqu2g" path="res://UI/img/bt_close2.png" id="5_x5ifw"]
+[ext_resource type="Texture2D" uid="uid://vwob8qr7kvpi" path="res://UI/img/bt_open.png" id="6_0vkhu"]
+[ext_resource type="Texture2D" uid="uid://cktuw7opdh31f" path="res://UI/img/bt_open2.png" id="7_elmru"]
+
+[node name="InventoryBag" type="TextureRect"]
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 23.0
+offset_top = -42.0
+offset_right = 119.0
+offset_bottom = 70.0
+grow_vertical = 2
+texture = ExtResource("1_adgi4")
+script = ExtResource("2_qr4h7")
+ui_item_path = "res://UI/UIItem.tscn"
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 11.0
+offset_top = 9.0
+offset_right = -1.0
+offset_bottom = -8.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="ScrollContainer"]
+layout_mode = 2
+size_flags_vertical = 4
+alignment = 1
+
+[node name="UIItem" parent="ScrollContainer/VBoxContainer" instance=ExtResource("2_eq252")]
+layout_mode = 2
+
+[node name="CloseButton" parent="." instance=ExtResource("3_6qbpn")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -11.0
+offset_top = -30.0
+offset_right = 19.0
+offset_bottom = 30.0
+grow_horizontal = 0
+texture_normal = ExtResource("4_x8x5d")
+texture_pressed = ExtResource("4_x8x5d")
+texture_hover = ExtResource("5_x5ifw")
+
+[node name="OpenButton" parent="." instance=ExtResource("3_6qbpn")]
+visible = false
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -10.0
+offset_top = -31.0
+offset_right = 20.0
+offset_bottom = 31.0
+grow_horizontal = 0
+texture_normal = ExtResource("6_0vkhu")
+texture_pressed = ExtResource("6_0vkhu")
+texture_hover = ExtResource("7_elmru")

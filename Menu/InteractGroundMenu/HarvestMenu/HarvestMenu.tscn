@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://dsi3s0knhygjy"]
+
+[ext_resource type="PackedScene" uid="uid://csci0iavfrmty" path="res://Menu/InteractGroundMenu/InteractGroundMenu.tscn" id="1_i8ach"]
+[ext_resource type="Script" path="res://Menu/InteractGroundMenu/HarvestMenu/HarvestMenu.gd" id="2_2urq0"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="2_o6re3"]
+
+[node name="HarvestMenu" instance=ExtResource("1_i8ach")]
+script = ExtResource("2_2urq0")
+
+[node name="HarvestButton" parent="." index="3" instance=ExtResource("2_o6re3")]
+layout_mode = 1
+theme_override_font_sizes/font_size = 8
+text = "เก็บเกี่ยว"
+
+[connection signal="after_play_press_sound" from="HarvestButton" to="." method="_on_harvest_button_after_play_press_sound"]

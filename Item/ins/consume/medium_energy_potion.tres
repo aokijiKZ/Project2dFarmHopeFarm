@@ -1,0 +1,25 @@
+[gd_resource type="Resource" script_class="Item" load_steps=7 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/medium_energy_potion_icon.tres" id="1_hdisr"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_mcbdx"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="3_fa3m2"]
+[ext_resource type="Script" path="res://Item/ItemStrategyUse.gd" id="4_ciiyb"]
+
+[sub_resource type="Resource" id="Resource_8xqwd"]
+script = ExtResource("3_fa3m2")
+buy_price = 10
+
+[sub_resource type="Resource" id="Resource_kacfo"]
+script = ExtResource("4_ciiyb")
+consume_heal_hp = 0
+consume_heal_stamina = 10
+consume_unlimit_stamina_time_sec = 0
+is_comsume_on_use = true
+
+[resource]
+script = ExtResource("1_mcbdx")
+item_name = "นํ้าดื่มกลาง"
+description = ""
+icon = ExtResource("1_hdisr")
+quantity = 1
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_8xqwd"), SubResource("Resource_kacfo")])

@@ -1,0 +1,30 @@
+[gd_scene load_steps=3 format=3 uid="uid://desjwy18fy7s8"]
+
+[ext_resource type="Texture2D" uid="uid://dhko5m5tfme40" path="res://MyLabel/bg_text.png" id="1_rswfl"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_aojai"]
+texture = ExtResource("1_rswfl")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 64, 21)
+
+[node name="MyLabel" type="Label"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -0.5
+offset_top = -12.0
+offset_right = 0.5
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_aojai")
+text = "ข้อความ"
+horizontal_alignment = 1
+vertical_alignment = 1

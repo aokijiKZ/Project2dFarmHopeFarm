@@ -1,0 +1,21 @@
+[gd_scene load_steps=4 format=3 uid="uid://btpi7ju63ymxc"]
+
+[ext_resource type="Script" path="res://EmptyGround/EmptyGround.gd" id="1_htv3a"]
+[ext_resource type="PackedScene" uid="uid://htlcujtmku4y" path="res://FarmPlot/FarmPlot.tscn" id="2_588ho"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_b0wl8"]
+size = Vector2(15.5, 15.5)
+
+[node name="EmptyGround" type="Node2D"]
+script = ExtResource("1_htv3a")
+farm_plot_packageScene = ExtResource("2_588ho")
+metadata/_edit_vertical_guides_ = [-9.0]
+
+[node name="HoleHurtBox" type="Area2D" parent="."]
+collision_layer = 16
+collision_mask = 16
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="HoleHurtBox"]
+shape = SubResource("RectangleShape2D_b0wl8")
+
+[connection signal="area_entered" from="HoleHurtBox" to="." method="_on_hole_hurt_box_area_entered"]

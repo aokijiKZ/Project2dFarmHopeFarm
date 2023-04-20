@@ -1,0 +1,363 @@
+[gd_scene load_steps=22 format=3 uid="uid://c41t3hhdhlpl2"]
+
+[ext_resource type="Texture2D" uid="uid://bva1qolkm2rbi" path="res://Menu/EndGameMenu/img/wingame (1).png" id="1_718au"]
+[ext_resource type="Script" path="res://Menu/EndGameMenu/EndGaneMenu.gd" id="1_nu1tu"]
+[ext_resource type="AudioStream" uid="uid://ckstljf6ott54" path="res://Menu/EndGameMenu/completed.wav" id="2_ell5i"]
+[ext_resource type="Texture2D" uid="uid://bt18fgvpb2adi" path="res://Menu/EndGameMenu/img/bg (7).png" id="2_mfq2p"]
+[ext_resource type="Texture2D" uid="uid://64vcfijlcx1h" path="res://Menu/EndGameMenu/img/bg_detail1.png" id="3_oum43"]
+[ext_resource type="Texture2D" uid="uid://b7cp8wyrln7e0" path="res://Menu/EndGameMenu/img/bg_detail2.png" id="4_eeead"]
+[ext_resource type="Texture2D" uid="uid://45g8e1qal61v" path="res://Menu/EndGameMenu/img/bg_detail3.png" id="5_gsxtv"]
+[ext_resource type="Texture2D" uid="uid://cydjykkjscbtr" path="res://Menu/EndGameMenu/img/bg_detail4.png" id="6_ctnhp"]
+[ext_resource type="Texture2D" uid="uid://c7we44vy4bqeo" path="res://Menu/EndGameMenu/img/bg_textMapWin.png" id="7_22lip"]
+[ext_resource type="Texture2D" uid="uid://bgjiat6aplgtk" path="res://Menu/EndGameMenu/img/bg_wintext_animation1.png" id="8_bqphw"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="9_3je4r"]
+[ext_resource type="Texture2D" uid="uid://kbnhwa08i7cq" path="res://Menu/EndGameMenu/img/home.png" id="10_1tn5h"]
+[ext_resource type="Texture2D" uid="uid://cqn0bxal1fvu2" path="res://Menu/EndGameMenu/img/home_choose.png" id="11_1uui4"]
+[ext_resource type="Texture2D" uid="uid://btja450y3j4t2" path="res://Menu/EndGameMenu/img/bg_wintext_animation2.png" id="11_2eodd"]
+[ext_resource type="Texture2D" uid="uid://bo8jwic0mejl3" path="res://Menu/EndGameMenu/img/renew.png" id="12_vmj74"]
+[ext_resource type="Texture2D" uid="uid://ye73m3stal5k" path="res://Menu/EndGameMenu/img/renew_choose.png" id="13_y8s8o"]
+[ext_resource type="Texture2D" uid="uid://dfrai8oohcbkv" path="res://Menu/EndGameMenu/img/icon_next.png" id="14_tuy8m"]
+[ext_resource type="Texture2D" uid="uid://dhj0f4fdlq680" path="res://Menu/EndGameMenu/img/icon_next_fail.png" id="18_iycti"]
+
+[sub_resource type="Animation" id="Animation_bg1f6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [ExtResource("8_bqphw")]
+}
+
+[sub_resource type="Animation" id="Animation_re3im"]
+resource_name = "auto"
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.5),
+"transitions": PackedFloat32Array(1, 1),
+"update": 1,
+"values": [ExtResource("8_bqphw"), ExtResource("11_2eodd")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_cinqy"]
+_data = {
+"RESET": SubResource("Animation_bg1f6"),
+"auto": SubResource("Animation_re3im")
+}
+
+[node name="EndGaneMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_nu1tu")
+end_game_sound = ExtResource("2_ell5i")
+level_select_menu_path = "res://Menu/LevelSelectMenu/LevelSelectMenu.tscn"
+new_card_menu_path = "res://Menu/NewCardMenu/NewCardMenu.tscn"
+
+[node name="ex" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_718au")
+
+[node name="Bg(7)" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -104.0
+offset_top = -66.0
+offset_right = 104.0
+offset_bottom = 78.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_mfq2p")
+
+[node name="BgDetail1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = -37.0
+offset_right = -1.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_oum43")
+
+[node name="value" type="Label" parent="BgDetail1"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 12
+text = "0.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="BgDetail1"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "เวลากำหนด"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BgDetail2" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = -37.0
+offset_right = 72.0
+offset_bottom = -1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("4_eeead")
+
+[node name="value" type="Label" parent="BgDetail2"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 12
+text = "0.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="BgDetail2"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "เวลาที่ใช้"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BgDetail3" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -72.0
+offset_top = 1.0
+offset_right = -1.0
+offset_bottom = 37.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("5_gsxtv")
+
+[node name="value" type="Label" parent="BgDetail3"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 12
+text = "0.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="BgDetail3"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = "ออกซิเจนที่ได้"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BgDetail4" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = 1.0
+offset_top = 1.0
+offset_right = 72.0
+offset_bottom = 36.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("6_ctnhp")
+
+[node name="value" type="Label" parent="BgDetail4"]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 22.0
+grow_horizontal = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 12
+text = "0.00"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="desc" type="Label" parent="BgDetail4"]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+theme_override_font_sizes/font_size = 8
+text = " ความสำเร็จ"
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="BgTextMapWin" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -132.0
+offset_top = -76.0
+offset_right = -59.0
+offset_bottom = -27.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("7_22lip")
+
+[node name="Label" type="Label" parent="BgTextMapWin"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -17.5
+offset_top = -14.5
+offset_right = 22.5
+offset_bottom = 12.5
+grow_horizontal = 2
+grow_vertical = 2
+rotation = -0.380482
+pivot_offset = Vector2(20, 13)
+text = "A-1"
+
+[node name="BgWintextAnimation1" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -44.0
+offset_top = -80.0
+offset_right = 44.0
+offset_bottom = -45.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("8_bqphw")
+
+[node name="Label" type="Label" parent="BgWintextAnimation1"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -13.5
+offset_right = 20.0
+offset_bottom = 13.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+text = "ผ่าน !"
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="BgWintextAnimation1"]
+autoplay = "auto"
+libraries = {
+"": SubResource("AnimationLibrary_cinqy")
+}
+
+[node name="HomeButton" parent="." instance=ExtResource("9_3je4r")]
+layout_mode = 1
+offset_left = -38.0
+offset_top = 44.0
+offset_right = -16.0
+offset_bottom = 66.0
+texture_normal = ExtResource("10_1tn5h")
+texture_pressed = ExtResource("10_1tn5h")
+texture_hover = ExtResource("11_1uui4")
+
+[node name="ReButton" parent="." instance=ExtResource("9_3je4r")]
+layout_mode = 1
+offset_left = -11.0
+offset_top = 44.0
+offset_right = 11.0
+offset_bottom = 66.0
+texture_normal = ExtResource("12_vmj74")
+texture_pressed = ExtResource("12_vmj74")
+texture_hover = ExtResource("13_y8s8o")
+
+[node name="NextButton" parent="." instance=ExtResource("9_3je4r")]
+layout_mode = 1
+offset_left = 16.0
+offset_top = 44.0
+offset_right = 38.0
+offset_bottom = 66.0
+texture_normal = ExtResource("14_tuy8m")
+texture_pressed = ExtResource("14_tuy8m")
+texture_hover = ExtResource("14_tuy8m")
+texture_disabled = ExtResource("18_iycti")
+
+[connection signal="after_play_press_sound" from="HomeButton" to="." method="_on_home_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="ReButton" to="." method="_on_re_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="NextButton" to="." method="_on_next_button_after_play_press_sound"]

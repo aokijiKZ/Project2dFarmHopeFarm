@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://dom6vccl7a53u" path="res://GameDatabase/ref/mining_ores.png" id="1_m4hl6"]
+
+[resource]
+atlas = ExtResource("1_m4hl6")
+region = Rect2(128, 96, 16, 16)

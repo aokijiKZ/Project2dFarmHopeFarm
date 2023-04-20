@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://q8qlnqqumq1w"]
+
+[ext_resource type="PackedScene" uid="uid://bykc62haaji2n" path="res://Card/Card.tscn" id="1_6vyaf"]
+[ext_resource type="Texture2D" uid="uid://dy3ih1f3vwkar" path="res://Card/imageCard4.png" id="2_2enwe"]
+
+[node name="Card_3" instance=ExtResource("1_6vyaf")]
+card_name = "ต้นไม้ 1 ต้น!?"
+desc = "ต้นไม้ใหญ่ 1 ต้น สามารถดูดซับก๊าซคาร์บอนไดออกไซด์เฉลี่ย 9-15 กิโลกรัม/ปี ลดอุหภูมิรอบบ้านได้ 2-4 องศาเซลเซียส พร้อมทั้งปล่อยออกซิเจนรองรับความต้องการของมนุษย์ได้ถึง 2 คน/ปี ดักจำฝุ่นและมลพิษในอากาศได้ 1.4 กิโลกรัม/ปี เพิ่มมูลค่าให้ที่ดิน ถ้าเราปลูกทางิทศตะวันตกของอาคารเพื่อกันแดด จะทำให้ประหย้ดพลังงาน 3% ภายใน 5 ปี ต้นไม้เพียง 1 ต้น ช่วยลดมลพิษได้มากกว่าที่คิด!"
+pic = ExtResource("2_2enwe")
+buff_start_item_names = Array[String](["small_energy_potion"])

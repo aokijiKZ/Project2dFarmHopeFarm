@@ -1,0 +1,99 @@
+[gd_scene load_steps=9 format=3 uid="uid://htlcujtmku4y"]
+
+[ext_resource type="Texture2D" uid="uid://ch1j3b4rhpo0v" path="res://FarmPlot/a.png" id="1_b0uai"]
+[ext_resource type="Script" path="res://FarmPlot/FarmPlot.gd" id="1_xrumu"]
+[ext_resource type="PackedScene" uid="uid://b4v85ddke6qgi" path="res://FarmerAndMouseDetector/FarmerAndMouseDectector.tscn" id="4_5hpga"]
+[ext_resource type="Script" path="res://FarmPlot/DisplayCoolDownLabel.gd" id="4_ixmhw"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pnjmb"]
+size = Vector2(16, 16)
+
+[sub_resource type="Animation" id="Animation_rbr0m"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame_coords")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [Vector2i(5, 0)]
+}
+
+[sub_resource type="Animation" id="Animation_wilno"]
+resource_name = "hole"
+length = 0.6
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.1, 0.2, 0.3, 0.4, 0.5),
+"transitions": PackedFloat32Array(1, 1, 1, 1, 1, 1),
+"update": 1,
+"values": [5, 4, 3, 2, 1, 0]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_clcgb"]
+_data = {
+"RESET": SubResource("Animation_rbr0m"),
+"hole": SubResource("Animation_wilno")
+}
+
+[node name="FarmPlot" type="Node2D"]
+z_index = -1
+z_as_relative = false
+script = ExtResource("1_xrumu")
+crop_path = "res://Crop/Crop.tscn"
+hole_menu_path = "res://Menu/InteractGroundMenu/HoleMenu/HoleMenu.tscn"
+seed_menu_path = "res://Menu/InteractGroundMenu/SeedMenu/SeedMenu.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+texture = ExtResource("1_b0uai")
+hframes = 6
+frame = 5
+
+[node name="FarmerAndMouseDectector" parent="." instance=ExtResource("4_5hpga")]
+
+[node name="CollisionShape2D" parent="FarmerAndMouseDectector/MouseHitBox" index="0"]
+shape = SubResource("RectangleShape2D_pnjmb")
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_clcgb")
+}
+
+[node name="z_index_5" type="Node2D" parent="."]
+z_index = 5
+z_as_relative = false
+
+[node name="DisplayCoolDownLabel" type="Label" parent="z_index_5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -4.0
+offset_top = -25.0
+offset_right = 10.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+vertical_alignment = 1
+script = ExtResource("4_ixmhw")
+
+[node name="CoolDownTimer" type="Timer" parent="z_index_5/DisplayCoolDownLabel"]
+one_shot = true
+
+[connection signal="farmer_and_mouse_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_farmer_and_mouse_in_area"]
+[connection signal="farmer_and_mouse_not_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_farmer_and_mouse_not_in_area"]
+[connection signal="left_mouse_clicked_while_farmer_and_mouse_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_left_mouse_clicked_while_farmer_and_mouse_in_area"]
+[connection signal="timeout" from="z_index_5/DisplayCoolDownLabel/CoolDownTimer" to="." method="_on_cool_down_timer_timeout"]
+
+[editable path="FarmerAndMouseDectector"]

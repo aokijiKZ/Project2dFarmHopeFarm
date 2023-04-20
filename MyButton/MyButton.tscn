@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://b2uof0ddav33m"]
+
+[ext_resource type="Script" path="res://MyButton/MyButton.gd" id="1_1ba2p"]
+[ext_resource type="AudioStream" uid="uid://y53wuwxdqyh2" path="res://addons/kenney_interface_sounds/confirmation_001.wav" id="2_4s7d1"]
+[ext_resource type="AudioStream" uid="uid://br3hisnjcagb3" path="res://addons/kenney_interface_sounds/bong_001.wav" id="3_ax41j"]
+
+[node name="MyButton" type="Button"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -12.0
+offset_top = -5.0
+offset_right = 12.0
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+script = ExtResource("1_1ba2p")
+press_sound = ExtResource("2_4s7d1")
+hover_sound = ExtResource("3_ax41j")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

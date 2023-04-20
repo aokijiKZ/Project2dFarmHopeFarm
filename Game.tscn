@@ -1,0 +1,42 @@
+[gd_scene load_steps=13 format=3 uid="uid://bdnp4st0freiy"]
+
+[ext_resource type="Script" path="res://Game.gd" id="1_dw63d"]
+[ext_resource type="PackedScene" uid="uid://cv2yf5ps32hfr" path="res://MapGenerator/MapGenerator.tscn" id="2_kxxkt"]
+[ext_resource type="PackedScene" uid="uid://celesvh5gnd2r" path="res://Rock/Rock.tscn" id="3_0ubu0"]
+[ext_resource type="PackedScene" uid="uid://c3wc5crfkmmmb" path="res://RockBig/RockBig.tscn" id="4_fvlb1"]
+[ext_resource type="PackedScene" uid="uid://bg8kyyxyfoftc" path="res://Rock2/Rock.tscn" id="5_iqw3b"]
+[ext_resource type="PackedScene" uid="uid://y8bhjn2l02rd" path="res://Farmer/Farmer.tscn" id="5_nln4k"]
+[ext_resource type="PackedScene" uid="uid://v65qpdhjwv5d" path="res://GameTimer/GameTimer.tscn" id="6_vaa1b"]
+[ext_resource type="PackedScene" uid="uid://chytjm7aqodlx" path="res://RockBig2/RockBig.tscn" id="6_x4lx8"]
+[ext_resource type="PackedScene" uid="uid://cqhfves3wjcsa" path="res://UI/UI.tscn" id="7_dybjl"]
+[ext_resource type="PackedScene" uid="uid://bhufpojwqqsaw" path="res://AriDropStation/AriDropStation.tscn" id="8_w5qeu"]
+[ext_resource type="Texture2D" uid="uid://coh0b7yulkof2" path="res://light_03.png" id="10_5od4f"]
+[ext_resource type="PackedScene" uid="uid://dtmif21sg34gm" path="res://RobotShop/RobotShop.tscn" id="15_bdgbu"]
+
+[node name="Game" type="Node2D"]
+y_sort_enabled = true
+script = ExtResource("1_dw63d")
+end_game_menu_path = "res://Menu/EndGameMenu/EndGaneMenu.tscn"
+dialog_scene_path = "res://DialogScene/DialogicScene.tscn"
+dialogic_timeline_path = "res://dialogic/Timeline/in_game.dtl"
+
+[node name="MapGenerator" parent="." instance=ExtResource("2_kxxkt")]
+object_packed_scenes = Array[PackedScene]([ExtResource("3_0ubu0"), ExtResource("4_fvlb1"), ExtResource("5_iqw3b"), ExtResource("6_x4lx8")])
+
+[node name="Farmer" parent="." instance=ExtResource("5_nln4k")]
+
+[node name="GameTimer" parent="." instance=ExtResource("6_vaa1b")]
+
+[node name="UI" parent="." instance=ExtResource("7_dybjl")]
+
+[node name="Light03" type="PointLight2D" parent="."]
+color = Color(0.211765, 0.211765, 0.219608, 1)
+texture = ExtResource("10_5od4f")
+
+[node name="AriDropStation" parent="." instance=ExtResource("8_w5qeu")]
+position = Vector2(-46, -43)
+
+[node name="RobotShop" parent="." instance=ExtResource("15_bdgbu")]
+position = Vector2(0, -32)
+
+[editable path="MapGenerator"]

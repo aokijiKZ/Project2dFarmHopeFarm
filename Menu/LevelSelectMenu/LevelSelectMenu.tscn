@@ -1,0 +1,264 @@
+[gd_scene load_steps=22 format=3 uid="uid://dyuhkxp6s7b3s"]
+
+[ext_resource type="Texture2D" uid="uid://cttnl2nfei3xv" path="res://Menu/LevelSelectMenu/UI (1).png" id="1_7foas"]
+[ext_resource type="Script" path="res://Menu/LevelSelectMenu/LevelSelectMenu.gd" id="1_63emd"]
+[ext_resource type="Texture2D" uid="uid://dhf5k4ennr3uw" path="res://Menu/LevelSelectMenu/bg (5).png" id="2_5eif8"]
+[ext_resource type="Texture2D" uid="uid://2g73rlcio4xx" path="res://Menu/LevelSelectMenu/bt_catagoryChoose.png" id="4_hn2ok"]
+[ext_resource type="Texture2D" uid="uid://b278fi15fqfgt" path="res://Menu/LevelSelectMenu/bt_catagory.png" id="5_jrlou"]
+[ext_resource type="PackedScene" uid="uid://dobuvrpseysyh" path="res://Menu/LevelSelectMenu/LevelPreview.tscn" id="6_fbmpy"]
+[ext_resource type="Texture2D" uid="uid://dytgr8drwrqcg" path="res://Menu/LevelSelectMenu/bg_o2.png" id="7_plpm7"]
+[ext_resource type="Texture2D" uid="uid://cwip3p0pchfp0" path="res://Menu/LevelSelectMenu/bg_o2_2.png" id="8_0wyh4"]
+[ext_resource type="AudioStream" uid="uid://b0cy4odp1psec" path="res://addons/kenney_ui_audio/click3.wav" id="9_si100"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="11_tbdq6"]
+[ext_resource type="Texture2D" uid="uid://bliuygmgpw48i" path="res://Menu/LevelSelectMenu/icon_card1.png" id="12_wlfwv"]
+[ext_resource type="Texture2D" uid="uid://bbfsp00qau3te" path="res://Menu/LevelSelectMenu/icon_card2.png" id="13_ksw68"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="14_3trsy"]
+[ext_resource type="Texture2D" uid="uid://cwy8o8ksy0640" path="res://Menu/LevelSelectMenu/back.png" id="15_7pagn"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_pdxny"]
+texture = ExtResource("4_hn2ok")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_1q73h"]
+texture = ExtResource("5_jrlou")
+texture_margin_left = 4.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_sk8bx"]
+texture = ExtResource("2_5eif8")
+region_rect = Rect2(0, 20, 288, 112)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rho6h"]
+bg_color = Color(0.207843, 0.207843, 0.219608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_svrk6"]
+texture = ExtResource("15_7pagn")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_4x6ok"]
+load_path = "res://.godot/imported/back.png-b4f62639c8f8b1611f5c150abaa23b37.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_qekhv"]
+texture = SubResource("CompressedTexture2D_4x6ok")
+modulate_color = Color(0.5, 0.5, 0.5, 1)
+
+[node name="LevelSelectMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_63emd")
+card_menu_path = "res://Menu/CardMenu/CardMenu.tscn"
+title_menu_path = "res://Menu/TitleMenu/TitleMenu.tscn"
+dialog_scene_path = "res://DialogScene/DialogicScene.tscn"
+dialogic_timeline_path = "res://dialogic/Timeline/area_selection.dtl"
+dialogic_timeline_end_game_path = "res://dialogic/Timeline/complate_game.dtl"
+
+[node name="ChooseMap(1)" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 90)
+texture = ExtResource("1_7foas")
+
+[node name="bg" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -62.0
+offset_right = 144.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_5eif8")
+
+[node name="LevelTabContainer" type="TabContainer" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -144.0
+offset_top = -63.0
+offset_right = 144.0
+offset_bottom = 70.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/tab_selected = SubResource("StyleBoxTexture_pdxny")
+theme_override_styles/tab_unselected = SubResource("StyleBoxTexture_1q73h")
+theme_override_styles/tab_disabled = SubResource("StyleBoxTexture_1q73h")
+theme_override_styles/panel = SubResource("StyleBoxTexture_sk8bx")
+tab_alignment = 1
+
+[node name="ทวีป 1" type="TabBar" parent="LevelTabContainer"]
+layout_mode = 2
+tab_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelTabContainer/ทวีป 1"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LevelPreview1" parent="LevelTabContainer/ทวีป 1/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level1.tscn"
+
+[node name="LevelPreview2" parent="LevelTabContainer/ทวีป 1/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level2.tscn"
+
+[node name="LevelPreview3" parent="LevelTabContainer/ทวีป 1/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level3.tscn"
+
+[node name="ทวีป 2" type="TabBar" parent="LevelTabContainer"]
+visible = false
+layout_mode = 2
+tab_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelTabContainer/ทวีป 2"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LevelPreview4" parent="LevelTabContainer/ทวีป 2/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level4.tscn"
+
+[node name="LevelPreview5" parent="LevelTabContainer/ทวีป 2/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level5.tscn"
+
+[node name="LevelPreview6" parent="LevelTabContainer/ทวีป 2/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level6.tscn"
+
+[node name="ทวีป 3" type="TabBar" parent="LevelTabContainer"]
+visible = false
+layout_mode = 2
+tab_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="LevelTabContainer/ทวีป 3"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = 16.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+alignment = 1
+
+[node name="LevelPreview7" parent="LevelTabContainer/ทวีป 3/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level7.tscn"
+
+[node name="LevelPreview8" parent="LevelTabContainer/ทวีป 3/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level8.tscn"
+
+[node name="LevelPreview9" parent="LevelTabContainer/ทวีป 3/HBoxContainer" instance=ExtResource("6_fbmpy")]
+layout_mode = 2
+level_path = "res://Level/level9.tscn"
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxFlat_rho6h")
+text = "เลือกด่าน"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="OxygenBar" type="TextureProgressBar" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -16.0
+grow_horizontal = 2
+grow_vertical = 0
+nine_patch_stretch = true
+texture_under = ExtResource("7_plpm7")
+texture_progress = ExtResource("8_0wyh4")
+
+[node name="Label" type="Label" parent="OxygenBar"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -12.0
+offset_right = 20.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "0000/0000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="TabChangeSoundPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("9_si100")
+volume_db = -10.0
+
+[node name="MyTextureButton" parent="." instance=ExtResource("11_tbdq6")]
+layout_mode = 1
+anchors_preset = 6
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -47.0
+offset_top = -40.0
+offset_right = -32.0
+offset_bottom = -28.0
+grow_horizontal = 0
+texture_normal = ExtResource("12_wlfwv")
+texture_pressed = ExtResource("12_wlfwv")
+texture_hover = ExtResource("13_ksw68")
+
+[node name="BackButton" parent="." instance=ExtResource("14_3trsy")]
+layout_mode = 1
+anchors_preset = 4
+anchor_left = 0.0
+anchor_right = 0.0
+offset_left = 16.0
+offset_top = -40.0
+offset_right = 33.0
+offset_bottom = -29.0
+grow_horizontal = 1
+theme_override_styles/normal = SubResource("StyleBoxTexture_svrk6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_qekhv")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_svrk6")
+
+[connection signal="tab_changed" from="LevelTabContainer" to="." method="_on_level_tab_container_tab_changed"]
+[connection signal="after_play_press_sound" from="MyTextureButton" to="." method="_on_my_texture_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="BackButton" to="." method="_on_back_button_after_play_press_sound"]

@@ -1,0 +1,15 @@
+[gd_scene load_steps=4 format=3 uid="uid://cchyaaclnbvcc"]
+
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="1_1t1gc"]
+[ext_resource type="Texture2D" uid="uid://cusq5eoacrvg2" path="res://Menu/CardMenu/card.png" id="2_m7b1k"]
+[ext_resource type="Script" path="res://Menu/CardMenu/CardButton.gd" id="3_s8r3x"]
+
+[node name="CardButton" instance=ExtResource("1_1t1gc")]
+texture_normal = ExtResource("2_m7b1k")
+script = ExtResource("3_s8r3x")
+text_desc_menu_path = "res://Menu/TextDescMenu/TextDescMenu.tscn"
+card_path = "res://Card/Card_0.tscn"
+
+[connection signal="after_play_press_sound" from="." to="." method="_on_after_play_press_sound"]
+[connection signal="mouse_entered" from="." to="." method="hover_effect"]
+[connection signal="mouse_exited" from="." to="." method="remove_hover_effect"]

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Item" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_icon.tres" id="1_tes08"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="2_08b8o"]
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_1.tres" id="3_8yq5b"]
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_2.tres" id="4_8tdmp"]
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_3.tres" id="5_no0wv"]
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_4.tres" id="6_div52"]
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_5.tres" id="7_qdjli"]
+[ext_resource type="Script" path="res://Item/ItemStrategySeed.gd" id="8_px3wd"]
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_seed_0.tres" id="9_8jb0g"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="10_lpfia"]
+
+[sub_resource type="Resource" id="Resource_mxers"]
+script = ExtResource("8_px3wd")
+grow_time_sec = 8.0
+crop_generate_oxygen = 60
+seed_texture = ExtResource("9_8jb0g")
+crop_grow_textures = Array[Texture]([ExtResource("3_8yq5b"), ExtResource("4_8tdmp"), ExtResource("5_no0wv"), ExtResource("6_div52"), ExtResource("7_qdjli")])
+product_item_filepath = "res://Item/ins/product/tomato.tres"
+
+[sub_resource type="Resource" id="Resource_67ffh"]
+script = ExtResource("10_lpfia")
+buy_price = 25
+
+[resource]
+script = ExtResource("2_08b8o")
+item_name = "เมล็ดสตอเบอรี่"
+description = ""
+icon = ExtResource("1_tes08")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_mxers"), SubResource("Resource_67ffh")])

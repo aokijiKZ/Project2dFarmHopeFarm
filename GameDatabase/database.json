@@ -1,0 +1,156 @@
+{
+  "item": {
+	"carrot_seed": {
+	  "name": "carrot_seed",
+	  "desc": "เมล็ดพันธุ์ของแครอท นำไปปลูกเพื่อเพิ่มออกซิเจน 5 หน่วย และใช้เวลาเจริญเติบโต 1 วินาที ราคาขายผลผลิต 8",
+	  "type": "seed",
+	  "display_name": "เมล็ดแครอท",
+	  "growth_time_sec": 1,
+	  "oxygen_generated_point": 5,
+	  "buy_price": 5,
+	  "product_name": "carrot"
+	},
+	"corn_seed": {
+	  "name": "corn_seed",
+	  "desc": "เมล็ดพันธุ์ของข้าวโพด นำไปปลูกเพื่อเพิ่มออกซิเจน 10 หน่วย และใช้เวลาเจริญเติบโต 4 วินาที ราคาขายผลผลิต 12",
+	  "type": "seed",
+	  "display_name": "เมล็ดข้าวโพด",
+	  "growth_time_sec": 4,
+	  "oxygen_generated_point": 10,
+	  "buy_price": 8,
+	  "product_name": "corn"
+	},
+	"pumpkin_seed": {
+	  "name": "pumpkin_seed",
+	  "desc": "เมล็ดพันธุ์ฟักทอง นำไปปลูกเพื่อเพิ่มออกซิเจน 20 หน่วย และใช้เวลาเจริญเติบโต 3 วินาที ราคาขายผลผลิต 20",
+	  "type": "seed",
+	  "display_name": "เมล็ดฟักทอง",
+	  "growth_time_sec": 3,
+	  "oxygen_generated_point": 20,
+	  "buy_price": 12,
+	  "product_name": "pumpkin"
+	},
+	"potato_seed": {
+	  "name": "potato_seed",
+	  "desc": "เมล็ดพันธุ์มันฝรั่ง นำไปปลูกเพื่อเพิ่มออกซิเจน 25 หน่วย และใช้เวลาเจริญเติบโต 6 วินาที ราคาขายผลผลิต 22",
+	  "type": "seed",
+	  "display_name": "เมล็ดมันนฝรั่ง",
+	  "growth_time_sec": 6,
+	  "oxygen_generated_point": 25,
+	  "buy_price": 15,
+	  "product_name": "potato"
+	},
+	"strawberry_seed": {
+	  "name": "strawberry_seed",
+	  "desc": "เมล็ดพันธุ์สตรอว์เบอร์รี่ นำไปปลูกเพื่อเพิ่มออกซิเจน 40 หน่วย และใช้เวลาเจริญเติบโต 5 วินาที ราคาขายผลผลิต 32",
+	  "type": "seed",
+	  "display_name": "เมล็ดสตอเบอรี่",
+	  "growth_time_sec": 5,
+	  "oxygen_generated_point": 40,
+	  "buy_price": 20,
+	  "product_name": "strawberry"
+	},
+	"tomato_seed": {
+	  "name": "tomato_seed",
+	  "desc": "เมล็ดพันธุ์มะเขือเทศ นำไปปลูกเพื่อเพิ่มออกซิเจน 60 หน่วย และใช้เวลาเจริญเติบโต 8 วินาที ราคาขายผลผลิต 42",
+	  "type": "seed",
+	  "display_name": "เมล็ดมะเขือเทศ",
+	  "growth_time_sec": 8,
+	  "oxygen_generated_point": 60,
+	  "buy_price": 25,
+	  "product_name": "tomato"
+	},
+	"watermelon_seed": {
+	  "name": "watermelon_seed",
+	  "desc": "เมล็ดพันธุ์แตงโม นำไปปลูกเพื่อเพิ่มออกซิเจน 75 หน่วย และใช้เวลาเจริญเติบโต 10 วินาที ราคาขายผลผลิต 50",
+	  "type": "seed",
+	  "display_name": "เมล็ดแตงโม",
+	  "growth_time_sec": 10,
+	  "oxygen_generated_point": 75,
+	  "buy_price": 30,
+	  "product_name": "watermelon"
+	},
+	"carrot": {
+	  "name": "carrot",
+	  "desc": "แครอทสด ๆ ที่เพิ่งเก็บเกี่ยว สามารถนำไปขายได้ในราคา 8",
+	  "type": "plant_product",
+	  "display_name": "แครอท",
+	  "sell_price": 8
+	},
+	"corn": {
+	  "name": "corn",
+	  "desc": "ข้าวโพดสด ๆ ที่มีรสหวาน สามารถนำไปขายได้ในราคา 12",
+	  "type": "plant_product",
+	  "display_name": "ข้าวโพด",
+	  "sell_price": 12
+	},
+	"pumpkin": {
+	  "name": "pumpkin",
+	  "desc": "ฟักทองอร่อย ที่มีรสหวาน สามารถนำไปขายได้ในราคา 20",
+	  "type": "plant_product",
+	  "display_name": "ฟักทอง",
+	  "sell_price": 20
+	},
+	"potato": {
+	  "name": "potato",
+	  "desc": "มันฝรั่งอร่อย ที่มีประโยชน์ต่อสุขภาพ สามารถนำไปขายได้ในราคา 22",
+	  "type": "plant_product",
+	  "display_name": "มันนฝรั่ง",
+	  "sell_price": 22
+	},
+	"strawberry": {
+	  "name": "strawberry",
+	  "desc": "สตรอว์เบอร์รี่หวานและหอม สามารถนำไปขายได้ในราคา 32",
+	  "type": "plant_product",
+	  "display_name": "สตอเบอรี่",
+	  "sell_price": 32
+	},
+	"tomato": {
+	  "name": "tomato",
+	  "desc": "มะเขือเทศสด ๆ ที่มีรสเปรี้ยวหวาน สามารถนำไปขายได้ในราคา 42",
+	  "type": "plant_product",
+	  "display_name": "มะเขือเทศ",
+	  "sell_price": 42
+	},
+	"watermelon": {
+	  "name": "watermelon",
+	  "desc": "แตงโมหวานและอร่อย สามารถนำไปขายได้ในราคา 50",
+	  "type": "plant_product",
+	  "display_name": "แตงโม",
+	  "sell_price": 50
+	},
+	"medium_energy_potion": {
+	  "name": "medium_energy_potion",
+	  "desc": "น้ำดื่มกลาง สามารถเพิ่มพลังงาน 10 จุด และมีราคาขาย 10",
+	  "type": "potion",
+	  "display_name": "นํ้าดื่มกลาง",
+	  "buy_price": 10,
+	  "restore_energy_point": 10,
+	  "unlimit_energy_time_sec": 10
+	},
+	"medium_unlimit_energy_potion": {
+	  "name": "medium_unlimit_energy_potion",
+	  "desc": "น้ำดื่มบริสุทธิ์กลาง สามารถใช้กับพลังงานไม่จำกัดเป็นเวลา 10 วินาที และมีราคาขาย 20",
+	  "type": "potion",
+	  "display_name": "นํ้าดื่มบริสุทธิ์กลาง",
+	  "buy_price": 20,
+	  "unlimit_energy_time_sec": 10
+	},
+	"small_energy_potion": {
+	  "name": "small_energy_potion",
+	  "desc": "น้ำดื่มเล็ก สามารถเพิ่มพลังงาน 5 จุด และมีราคาขาย 5",
+	  "type": "potion",
+	  "display_name": "นํ้าดื่มเล็ก",
+	  "buy_price": 5,
+	  "restore_energy_point": 5
+	},
+	"small_unlimit_energy_potion": {
+	  "name": "small_unlimit_energy_potion",
+	  "desc": "น้ำดื่มบริสุทธิ์เล็ก สามารถใช้กับพลังงานไม่จำกัดเป็นเวลา 5 วินาที และมีราคาขาย 10",
+	  "type": "potion",
+	  "display_name": "นํ้าดื่มบริสุทธิ์เล็ก",
+	  "buy_price": 10,
+	  "unlimit_energy_time_sec": 5
+	}
+  }
+}

@@ -1,0 +1,350 @@
+[gd_scene load_steps=29 format=3 uid="uid://3sh8xnw0wgqx"]
+
+[ext_resource type="Texture2D" uid="uid://c00f2d56hlwuf" path="res://Menu/ShopMenu/shop (2).png" id="1_p1h5v"]
+[ext_resource type="Script" path="res://Menu/ShopMenu/ShopMenu.gd" id="1_qgo15"]
+[ext_resource type="PackedScene" uid="uid://dhewohyda8gb5" path="res://Menu/ShopMenu/BuyItemSlot.tscn" id="2_levnb"]
+[ext_resource type="Texture2D" uid="uid://yryqnx7ykhi" path="res://Menu/ShopMenu/bg.png" id="2_ujhag"]
+[ext_resource type="Texture2D" uid="uid://q2hoyumd5n0r" path="res://Menu/ShopMenu/bgtext_order.png" id="3_1tli7"]
+[ext_resource type="Texture2D" uid="uid://bxqqe0ce3nogo" path="res://Menu/ShopMenu/bg_list.png" id="4_0hb1f"]
+[ext_resource type="Texture2D" uid="uid://jjn7gi0437lt" path="res://Menu/ShopMenu/bgtext_sell.png" id="6_vsxw3"]
+[ext_resource type="Texture2D" uid="uid://xaw0n1bba5t8" path="res://Menu/ShopMenu/bg_cancelorder.png" id="7_2j4g8"]
+[ext_resource type="Texture2D" uid="uid://wpo6ocehtwbb" path="res://Menu/ShopMenu/bg_cooldown.png" id="8_6ltur"]
+[ext_resource type="Texture2D" uid="uid://bjnx8j4srptsh" path="res://Menu/ShopMenu/bg_order.png" id="9_xcxuv"]
+[ext_resource type="Texture2D" uid="uid://c5t1u6t44660q" path="res://Menu/ShopMenu/bg_money.png" id="10_twgu1"]
+[ext_resource type="PackedScene" uid="uid://bv2icfvuvn7ar" path="res://Menu/ShopMenu/SellItemSlot.tscn" id="11_7gqpm"]
+[ext_resource type="PackedScene" uid="uid://dkomm5yx5mk6j" path="res://Menu/ShopMenu/OrderItemSlot.tscn" id="11_mch61"]
+[ext_resource type="PackedScene" uid="uid://desjwy18fy7s8" path="res://MyLabel/MyLabel.tscn" id="11_v2b2x"]
+[ext_resource type="PackedScene" uid="uid://crep0hfussfrl" path="res://MyButton/MyExitMenuButton.tscn" id="13_lcsw3"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="16_smteq"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_dvm12"]
+texture = ExtResource("10_twgu1")
+texture_margin_left = 9.05374
+texture_margin_top = 1.08104
+texture_margin_right = 1.21617
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_vir1f"]
+texture = ExtResource("7_2j4g8")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_m57cs"]
+load_path = "res://.godot/imported/bg_cancelorder.png-1d7552b01ce4080e0615e48fcb9157e9.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_d5mjf"]
+texture = SubResource("CompressedTexture2D_m57cs")
+modulate_color = Color(0.207843, 0.207843, 0.219608, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_8yhru"]
+texture = ExtResource("8_6ltur")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_1u8f4"]
+load_path = "res://.godot/imported/bg_cooldown.png-51dc18fd2f05c62522b9e527833a038e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_00dgs"]
+texture = SubResource("CompressedTexture2D_1u8f4")
+modulate_color = Color(0.207843, 0.207843, 0.219608, 1)
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_v5nbc"]
+load_path = "res://.godot/imported/bg_cooldown.png-51dc18fd2f05c62522b9e527833a038e.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_l7wdb"]
+texture = SubResource("CompressedTexture2D_v5nbc")
+modulate_color = Color(0.203922, 0.164706, 0.168627, 1)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ijvh6"]
+texture = ExtResource("6_vsxw3")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_ijqvs"]
+load_path = "res://.godot/imported/bgtext_sell.png-8d05ef2508ecd38e91d24673488954ac.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_llcvk"]
+texture = SubResource("CompressedTexture2D_ijqvs")
+modulate_color = Color(0.207843, 0.207843, 0.219608, 1)
+
+[node name="ShopMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_qgo15")
+buy_slot_path = "res://Menu/ShopMenu/BuyItemSlot.tscn"
+sell_slot_path = "res://Menu/ShopMenu/SellItemSlot.tscn"
+order_slot_path = "res://Menu/ShopMenu/OrderItemSlot.tscn"
+air_drop_path = "res://AirDrop/AirDrop.tscn"
+dialog_scene_path = "res://DialogScene/DialogicScene.tscn"
+dialogic_timeline_path = "res://dialogic/Timeline/shop.dtl"
+
+[node name="ex" type="TextureRect" parent="."]
+visible = false
+layout_mode = 0
+offset_top = 1.0
+offset_right = 320.0
+offset_bottom = 181.0
+texture = ExtResource("1_p1h5v")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -73.0
+offset_right = 112.0
+offset_bottom = 71.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_ujhag")
+
+[node name="BgtextOrder" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 39.0
+offset_right = 262.0
+offset_bottom = 49.0
+texture = ExtResource("3_1tli7")
+
+[node name="Label" type="Label" parent="BgtextOrder"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -5.0
+offset_right = 10.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 4
+text = "รายการที่สั่ง"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgList" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 54.0
+offset_top = 48.0
+offset_right = 156.0
+offset_bottom = 156.0
+texture = ExtResource("4_0hb1f")
+
+[node name="BgtextSell" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 220.0
+offset_top = 103.0
+offset_right = 262.0
+offset_bottom = 113.0
+texture = ExtResource("6_vsxw3")
+
+[node name="Label" type="Label" parent="BgtextSell"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -10.5
+offset_top = -5.0
+offset_right = 10.5
+offset_bottom = 5.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 4
+text = "ของขาย"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="BgCancelorder" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 214.0
+offset_top = 84.0
+offset_right = 256.0
+offset_bottom = 100.0
+texture = ExtResource("7_2j4g8")
+
+[node name="BgCooldown" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 84.0
+offset_right = 210.0
+offset_bottom = 100.0
+texture = ExtResource("8_6ltur")
+
+[node name="BgOrder" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 48.0
+offset_right = 265.0
+offset_bottom = 83.0
+texture = ExtResource("9_xcxuv")
+
+[node name="BgOrder2" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 161.0
+offset_top = 112.0
+offset_right = 265.0
+offset_bottom = 147.0
+texture = ExtResource("9_xcxuv")
+
+[node name="BuyScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 59.0
+offset_top = 54.0
+offset_right = 152.0
+offset_bottom = 154.0
+horizontal_scroll_mode = 0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="BuyScrollContainer"]
+layout_mode = 2
+
+[node name="BuyItemSlot" parent="BuyScrollContainer/VBoxContainer" instance=ExtResource("2_levnb")]
+layout_mode = 2
+
+[node name="BuyItemSlot2" parent="BuyScrollContainer/VBoxContainer" instance=ExtResource("2_levnb")]
+layout_mode = 2
+
+[node name="BuyItemSlot3" parent="BuyScrollContainer/VBoxContainer" instance=ExtResource("2_levnb")]
+layout_mode = 2
+
+[node name="BuyItemSlot4" parent="BuyScrollContainer/VBoxContainer" instance=ExtResource("2_levnb")]
+layout_mode = 2
+
+[node name="BuyItemSlot5" parent="BuyScrollContainer/VBoxContainer" instance=ExtResource("2_levnb")]
+layout_mode = 2
+
+[node name="BuyItemSlot6" parent="BuyScrollContainer/VBoxContainer" instance=ExtResource("2_levnb")]
+layout_mode = 2
+
+[node name="SellScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 115.0
+offset_right = 260.0
+offset_bottom = 144.0
+horizontal_scroll_mode = 0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="SellScrollContainer"]
+layout_mode = 2
+
+[node name="SellItemSlot" parent="SellScrollContainer/VBoxContainer" instance=ExtResource("11_7gqpm")]
+layout_mode = 2
+
+[node name="SellItemSlot2" parent="SellScrollContainer/VBoxContainer" instance=ExtResource("11_7gqpm")]
+layout_mode = 2
+
+[node name="SellItemSlot3" parent="SellScrollContainer/VBoxContainer" instance=ExtResource("11_7gqpm")]
+layout_mode = 2
+
+[node name="SellItemSlot4" parent="SellScrollContainer/VBoxContainer" instance=ExtResource("11_7gqpm")]
+layout_mode = 2
+
+[node name="SellItemSlot5" parent="SellScrollContainer/VBoxContainer" instance=ExtResource("11_7gqpm")]
+layout_mode = 2
+
+[node name="OrderScrollContainer" type="ScrollContainer" parent="."]
+layout_mode = 0
+offset_left = 165.0
+offset_top = 50.0
+offset_right = 260.0
+offset_bottom = 79.0
+horizontal_scroll_mode = 0
+metadata/_edit_group_ = true
+
+[node name="VBoxContainer" type="VBoxContainer" parent="OrderScrollContainer"]
+layout_mode = 2
+
+[node name="OrderItemSlot" parent="OrderScrollContainer/VBoxContainer" instance=ExtResource("11_mch61")]
+layout_mode = 2
+
+[node name="OrderItemSlot2" parent="OrderScrollContainer/VBoxContainer" instance=ExtResource("11_mch61")]
+layout_mode = 2
+
+[node name="OrderItemSlot3" parent="OrderScrollContainer/VBoxContainer" instance=ExtResource("11_mch61")]
+layout_mode = 2
+
+[node name="OrderItemSlot4" parent="OrderScrollContainer/VBoxContainer" instance=ExtResource("11_mch61")]
+layout_mode = 2
+
+[node name="OrderItemSlot5" parent="OrderScrollContainer/VBoxContainer" instance=ExtResource("11_mch61")]
+layout_mode = 2
+
+[node name="OrderItemSlot6" parent="OrderScrollContainer/VBoxContainer" instance=ExtResource("11_mch61")]
+layout_mode = 2
+
+[node name="Money" type="Label" parent="."]
+layout_mode = 0
+offset_left = 126.0
+offset_top = 32.0
+offset_right = 165.0
+offset_bottom = 43.081
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_dvm12")
+text = "1000 ทอง"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="MyLabel" parent="." instance=ExtResource("11_v2b2x")]
+layout_mode = 1
+offset_left = -107.0
+offset_top = -66.0
+offset_right = -40.0
+offset_bottom = -47.0
+theme_override_font_sizes/font_size = 6
+text = "ร้านค้า"
+
+[node name="ExitMenuButton" parent="." instance=ExtResource("13_lcsw3")]
+layout_mode = 1
+offset_left = 96.0
+offset_top = -76.0
+offset_right = 113.0
+offset_bottom = -66.0
+
+[node name="cancleAllButton" parent="." instance=ExtResource("16_smteq")]
+layout_mode = 1
+offset_left = 54.0
+offset_top = -6.0
+offset_right = 96.0
+offset_bottom = 9.0
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_vir1f")
+theme_override_styles/hover = SubResource("StyleBoxTexture_d5mjf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_vir1f")
+text = "ยกเลิกทั้งหมด"
+
+[node name="confirmButton" parent="." instance=ExtResource("16_smteq")]
+layout_mode = 1
+offset_left = 5.0
+offset_top = -6.0
+offset_right = 50.0
+offset_bottom = 10.0
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_8yhru")
+theme_override_styles/hover = SubResource("StyleBoxTexture_00dgs")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_8yhru")
+theme_override_styles/disabled = SubResource("StyleBoxTexture_l7wdb")
+text = "สั่ง"
+
+[node name="sellAllButton" parent="." instance=ExtResource("16_smteq")]
+layout_mode = 1
+offset_left = 4.0
+offset_top = 13.0
+offset_right = 41.0
+offset_bottom = 22.0
+theme_override_font_sizes/font_size = 4
+theme_override_styles/normal = SubResource("StyleBoxTexture_ijvh6")
+theme_override_styles/hover = SubResource("StyleBoxTexture_llcvk")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ijvh6")
+text = "ขายทั้งหมด"
+
+[connection signal="after_play_press_sound" from="ExitMenuButton" to="." method="_on_exit_menu_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="cancleAllButton" to="." method="on_clear_order"]
+[connection signal="after_play_press_sound" from="confirmButton" to="." method="on_confirm_order"]
+[connection signal="after_play_press_sound" from="sellAllButton" to="." method="on_sell_all"]

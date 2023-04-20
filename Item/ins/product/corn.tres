@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://GameDatabase/img_data/item/corn.tres" id="1_gr3xe"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_uu8aw"]
+[ext_resource type="Script" path="res://Item/ItemStrategySell.gd" id="3_0pr43"]
+
+[sub_resource type="Resource" id="Resource_vnpdh"]
+script = ExtResource("3_0pr43")
+sell_price = 12
+
+[resource]
+script = ExtResource("1_uu8aw")
+item_name = "ข้าวโพด"
+description = ""
+quantity = 1
+icon = ExtResource("1_gr3xe")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_vnpdh")])

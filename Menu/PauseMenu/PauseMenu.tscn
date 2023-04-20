@@ -1,0 +1,115 @@
+[gd_scene load_steps=14 format=3 uid="uid://bs7iyay76mk6w"]
+
+[ext_resource type="Texture2D" uid="uid://dgattnn16hiet" path="res://Menu/PauseMenu/pause.png" id="1_4ae6t"]
+[ext_resource type="Script" path="res://Menu/PauseMenu/PauseMenu.gd" id="1_6bock"]
+[ext_resource type="Texture2D" uid="uid://cyv8sssihj5d1" path="res://Menu/PauseMenu/bg_pause.png" id="2_eqby6"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="3_l168t"]
+[ext_resource type="Texture2D" uid="uid://cn8ewmg43xvul" path="res://Menu/PauseMenu/renew.png" id="4_bhvoy"]
+[ext_resource type="Texture2D" uid="uid://34uiw06yajos" path="res://Menu/PauseMenu/renew_choose.png" id="5_juskr"]
+[ext_resource type="Texture2D" uid="uid://dlhhas8sikqsf" path="res://Menu/PauseMenu/home.png" id="6_cu45m"]
+[ext_resource type="Texture2D" uid="uid://cmsf68uth3j23" path="res://Menu/PauseMenu/home_choose.png" id="7_fkjli"]
+[ext_resource type="Texture2D" uid="uid://cdkm0e8gwrm0" path="res://Menu/PauseMenu/set.png" id="8_cgefm"]
+[ext_resource type="Texture2D" uid="uid://87xe2wmouq5o" path="res://Menu/PauseMenu/exitt.png" id="8_mkuu2"]
+[ext_resource type="Texture2D" uid="uid://bl8xf4ial03hy" path="res://Menu/PauseMenu/exit_choose.png" id="9_5belg"]
+[ext_resource type="Texture2D" uid="uid://dqun4g3jnchlr" path="res://Menu/PauseMenu/set_choose.png" id="9_pq81c"]
+[ext_resource type="PackedScene" uid="uid://crep0hfussfrl" path="res://MyButton/MyExitMenuButton.tscn" id="13_sfx6h"]
+
+[node name="PauseMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_6bock")
+setting_menu_path = "res://Menu/SettingMenu/SettingMenu.tscn"
+home_menu_path = "res://Menu/LevelSelectMenu/LevelSelectMenu.tscn"
+
+[node name="ex" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_4ae6t")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0, 0, 0, 0.5)
+
+[node name="BgPause" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("2_eqby6")
+stretch_mode = 3
+
+[node name="ReButton" parent="." instance=ExtResource("3_l168t")]
+layout_mode = 1
+offset_left = -24.0
+offset_top = -24.0
+offset_right = -2.0
+offset_bottom = -2.0
+texture_normal = ExtResource("4_bhvoy")
+texture_pressed = ExtResource("4_bhvoy")
+texture_hover = ExtResource("5_juskr")
+
+[node name="HomeButton" parent="." instance=ExtResource("3_l168t")]
+layout_mode = 1
+offset_left = 2.0
+offset_top = -24.0
+offset_right = 24.0
+offset_bottom = -2.0
+texture_normal = ExtResource("6_cu45m")
+texture_pressed = ExtResource("6_cu45m")
+texture_hover = ExtResource("7_fkjli")
+
+[node name="SettingButton" parent="." instance=ExtResource("3_l168t")]
+layout_mode = 1
+offset_left = -24.0
+offset_top = 1.0
+offset_right = -2.0
+offset_bottom = 23.0
+texture_normal = ExtResource("8_cgefm")
+texture_pressed = ExtResource("8_cgefm")
+texture_hover = ExtResource("9_pq81c")
+
+[node name="ExitButton" parent="." instance=ExtResource("3_l168t")]
+layout_mode = 1
+offset_left = 2.0
+offset_top = 1.0
+offset_right = 24.0
+offset_bottom = 23.0
+texture_normal = ExtResource("8_mkuu2")
+texture_pressed = ExtResource("8_mkuu2")
+texture_hover = ExtResource("9_5belg")
+
+[node name="ExitMenuButton" parent="." instance=ExtResource("13_sfx6h")]
+layout_mode = 1
+offset_left = 47.0
+offset_top = -53.0
+offset_right = 64.0
+offset_bottom = -43.0
+
+[connection signal="after_play_press_sound" from="ReButton" to="." method="_on_re_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="HomeButton" to="." method="_on_home_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="SettingButton" to="." method="_on_setting_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="ExitButton" to="." method="_on_exit_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="ExitMenuButton" to="." method="_on_exit_menu_button_after_play_press_sound"]

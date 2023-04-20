@@ -1,0 +1,27 @@
+[gd_scene load_steps=4 format=3 uid="uid://0v5uh6w4xsmk"]
+
+[ext_resource type="Script" path="res://MyTextureButton/MyTextureButton.gd" id="1_ju64e"]
+[ext_resource type="AudioStream" uid="uid://dydjj1d7ydb2p" path="res://addons/kenney_interface_sounds/select_004.wav" id="2_bihsd"]
+[ext_resource type="AudioStream" uid="uid://cete3e3hkbdh4" path="res://addons/kenney_interface_sounds/select_002.wav" id="3_kuo88"]
+
+[node name="MyTextureButton" type="TextureButton"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.0
+offset_top = -15.0
+offset_right = 15.0
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+focus_mode = 0
+mouse_default_cursor_shape = 2
+stretch_mode = 3
+script = ExtResource("1_ju64e")
+press_sound = ExtResource("2_bihsd")
+hover_sound = ExtResource("3_kuo88")
+
+[connection signal="mouse_entered" from="." to="." method="_on_mouse_entered"]
+[connection signal="pressed" from="." to="." method="_on_pressed"]

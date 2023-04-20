@@ -1,0 +1,250 @@
+[gd_scene load_steps=19 format=3 uid="uid://cqhfves3wjcsa"]
+
+[ext_resource type="Texture2D" uid="uid://cix45ufp08ibw" path="res://UI/img/default.png" id="1_mgwun"]
+[ext_resource type="Texture2D" uid="uid://da2o3x7xm6g4c" path="res://UI/img/setting.png" id="3_hkdwq"]
+[ext_resource type="Texture2D" uid="uid://d2t0n37cuebiy" path="res://UI/img/setting2.png" id="3_w7h6a"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="4_5a7yr"]
+[ext_resource type="Texture2D" uid="uid://dtw13pv6i56m5" path="res://UI/img/energy.png" id="5_ap1m4"]
+[ext_resource type="Texture2D" uid="uid://dnhlhrj00i5v5" path="res://UI/img/energy2 (1).png" id="6_78wk3"]
+[ext_resource type="Script" path="res://MyTextureButton/UISettingButton.gd" id="6_lcbgo"]
+[ext_resource type="Script" path="res://UI/UIFarmerStemina.gd" id="8_b8yqv"]
+[ext_resource type="Texture2D" uid="uid://bmtj8qmlb5nrw" path="res://UI/img/o2.png" id="8_y74il"]
+[ext_resource type="Texture2D" uid="uid://c2op1t366wpid" path="res://UI/img/o2_2.png" id="9_ijag8"]
+[ext_resource type="Script" path="res://UI/UIGameOXygen.gd" id="11_57l5x"]
+[ext_resource type="Texture2D" uid="uid://bc64n1ht8g8hi" path="res://UI/img/time.png" id="11_v5tf4"]
+[ext_resource type="Texture2D" uid="uid://dqak2asxjblka" path="res://UI/img/money.png" id="13_5vtxh"]
+[ext_resource type="Script" path="res://UI/UITime.gd" id="14_48w85"]
+[ext_resource type="PackedScene" uid="uid://dsdt0b6twybo8" path="res://UI/UIInventory.tscn" id="15_4qm68"]
+[ext_resource type="Script" path="res://UI/UIMoney.gd" id="16_aavhg"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_c0af3"]
+atlas = ExtResource("6_78wk3")
+region = Rect2(21, 0, 54, 22)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_x077x"]
+atlas = ExtResource("9_ijag8")
+region = Rect2(13, 0, 66, 12)
+
+[node name="UI" type="CanvasLayer"]
+
+[node name="ex" type="TextureRect" parent="."]
+visible = false
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_mgwun")
+
+[node name="SettingButton" parent="." instance=ExtResource("4_5a7yr")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -29.0
+offset_top = 9.0
+offset_right = -8.0
+offset_bottom = 30.0
+grow_horizontal = 0
+grow_vertical = 1
+texture_normal = ExtResource("3_hkdwq")
+texture_pressed = ExtResource("3_hkdwq")
+texture_hover = ExtResource("3_w7h6a")
+script = ExtResource("6_lcbgo")
+pause_menu_path = "res://Menu/PauseMenu/PauseMenu.tscn"
+
+[node name="FarmerStemina" type="TextureProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -138.0
+offset_top = 9.0
+offset_right = -63.0
+offset_bottom = 31.0
+grow_horizontal = 2
+value = 50.0
+texture_under = ExtResource("5_ap1m4")
+texture_progress = SubResource("AtlasTexture_c0af3")
+texture_progress_offset = Vector2(21, 0)
+script = ExtResource("8_b8yqv")
+
+[node name="value" type="Label" parent="FarmerStemina"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -15.5
+offset_top = -7.0
+offset_right = 31.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "10/10"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="FarmerStemina/value"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -17.0
+offset_right = 23.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "พลังงาน"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="GameOXygen" type="TextureProgressBar" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -46.0
+offset_top = 33.0
+offset_right = 33.0
+offset_bottom = 45.0
+grow_horizontal = 2
+texture_under = ExtResource("8_y74il")
+texture_progress = SubResource("AtlasTexture_x077x")
+texture_progress_offset = Vector2(13, 0)
+script = ExtResource("11_57l5x")
+
+[node name="value" type="Label" parent="GameOXygen"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -26.5
+offset_top = -8.0
+offset_right = 39.5
+offset_bottom = 6.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "10/10    "
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="GameOXygen/value"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = 5.0
+offset_right = 23.5
+offset_bottom = 15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "พลังงาาน"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Time" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -39.0
+offset_top = 9.0
+offset_right = 39.0
+offset_bottom = 31.0
+grow_horizontal = 2
+texture = ExtResource("11_v5tf4")
+script = ExtResource("14_48w85")
+
+[node name="value" type="Label" parent="Time"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -18.5
+offset_top = -8.0
+offset_right = 24.5
+offset_bottom = 8.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 8
+text = "000  วินาที"
+horizontal_alignment = 3
+vertical_alignment = 1
+
+[node name="Money" type="TextureRect" parent="."]
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = 58.0
+offset_top = 13.0
+offset_right = 111.0
+offset_bottom = 27.0
+grow_horizontal = 2
+texture = ExtResource("13_5vtxh")
+script = ExtResource("16_aavhg")
+
+[node name="value" type="Label" parent="Money"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -7.0
+offset_right = 23.5
+offset_bottom = 7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "1000"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label" type="Label" parent="Money/value"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -23.5
+offset_top = -17.0
+offset_right = 23.5
+offset_bottom = -7.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_outline_color = Color(1, 1, 1, 1)
+theme_override_font_sizes/font_size = 4
+text = "งบประมาณ"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="UIInventory" parent="." instance=ExtResource("15_4qm68")]
+
+[connection signal="after_play_press_sound" from="SettingButton" to="SettingButton" method="_on_after_play_press_sound"]

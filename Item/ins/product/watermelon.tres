@@ -1,0 +1,17 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_icon.tres" id="1_ple3d"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="2_86kao"]
+[ext_resource type="Script" path="res://Item/ItemStrategySell.gd" id="3_twx8e"]
+
+[sub_resource type="Resource" id="Resource_caxv4"]
+script = ExtResource("3_twx8e")
+sell_price = 50
+
+[resource]
+script = ExtResource("2_86kao")
+item_name = "แตงโม"
+description = ""
+quantity = 1
+icon = ExtResource("1_ple3d")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_caxv4")])

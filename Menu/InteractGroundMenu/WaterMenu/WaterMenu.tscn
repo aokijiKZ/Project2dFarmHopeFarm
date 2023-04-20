@@ -1,0 +1,88 @@
+[gd_scene load_steps=12 format=3 uid="uid://c21vkigxgdo03"]
+
+[ext_resource type="PackedScene" uid="uid://csci0iavfrmty" path="res://Menu/InteractGroundMenu/InteractGroundMenu.tscn" id="1_6wy36"]
+[ext_resource type="Texture2D" uid="uid://de8f5fa4r12od" path="res://Menu/InteractGroundMenu/WaterMenu/bg_seed.png" id="2_5dknl"]
+[ext_resource type="Script" path="res://Menu/InteractGroundMenu/WaterMenu/WaterMenu.gd" id="2_v5rqf"]
+[ext_resource type="Texture2D" uid="uid://c4yti3s4fppbi" path="res://Menu/InteractGroundMenu/WaterMenu/bg.png" id="2_xa4g2"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="3_eob6e"]
+[ext_resource type="Texture2D" uid="uid://bgqfa5h4aejx7" path="res://Menu/InteractGroundMenu/WaterMenu/WateringCans1.png" id="4_in3uw"]
+[ext_resource type="Texture2D" uid="uid://dmhedpx1yahni" path="res://Menu/InteractGroundMenu/WaterMenu/WateringCans2.png" id="5_ntgi6"]
+[ext_resource type="Texture2D" uid="uid://cgthh84rtfico" path="res://Menu/InteractGroundMenu/WaterMenu/_pipe3.png" id="6_p0wc5"]
+[ext_resource type="Texture2D" uid="uid://dfnrnla7shqa0" path="res://Menu/InteractGroundMenu/WaterMenu/pipe2.png" id="7_ey8k4"]
+[ext_resource type="Texture2D" uid="uid://ddjf60bxge7uu" path="res://Menu/InteractGroundMenu/WaterMenu/m1.png" id="10_aoeom"]
+[ext_resource type="AudioStream" uid="uid://bu50ckaqussdn" path="res://Menu/InteractGroundMenu/WaterMenu/poured_water.wav" id="11_cbs62"]
+
+[node name="WaterMenu" instance=ExtResource("1_6wy36")]
+script = ExtResource("2_v5rqf")
+water_bg = ExtResource("2_xa4g2")
+
+[node name="groundBg" parent="Bg" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -42.0
+offset_right = 112.0
+offset_bottom = 38.0
+texture = ExtResource("2_5dknl")
+
+[node name="WaterButton" parent="." index="3" instance=ExtResource("3_eob6e")]
+layout_mode = 1
+offset_left = 35.0
+offset_top = -32.0
+offset_right = 67.0
+offset_bottom = 0.0
+texture_normal = ExtResource("4_in3uw")
+texture_pressed = ExtResource("5_ntgi6")
+texture_hover = ExtResource("4_in3uw")
+
+[node name="WaterBar" type="TextureProgressBar" parent="." index="4"]
+layout_mode = 1
+anchors_preset = 4
+anchor_top = 0.5
+anchor_bottom = 0.5
+offset_left = 56.0
+offset_top = -38.5
+offset_right = 80.0
+offset_bottom = 34.5
+grow_vertical = 2
+step = 0.01
+fill_mode = 3
+texture_under = ExtResource("6_p0wc5")
+texture_progress = ExtResource("7_ey8k4")
+
+[node name="80" type="TextureRect" parent="WaterBar" index="0"]
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -14.0
+offset_top = 12.5
+offset_right = 14.0
+offset_bottom = 16.5
+grow_horizontal = 2
+texture = ExtResource("10_aoeom")
+
+[node name="60" type="TextureRect" parent="WaterBar" index="1"]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -14.0
+offset_top = -46.5
+offset_right = 14.0
+offset_bottom = -42.5
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("10_aoeom")
+
+[node name="WaterSoundPlayer" type="AudioStreamPlayer" parent="." index="5"]
+stream = ExtResource("11_cbs62")
+bus = &"Effect"
+
+[connection signal="button_down" from="WaterButton" to="." method="_on_water_button_button_down"]
+[connection signal="button_up" from="WaterButton" to="." method="_on_water_button_button_up"]

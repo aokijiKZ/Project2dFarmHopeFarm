@@ -1,0 +1,6 @@
+{
+"reward_card_path": "res://Card/Card_1.tscn",
+"target_oxygen": 60,
+"target_time": 65,
+"unlock_oxygen": 17
+}

@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Item" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_icon.tres" id="1_daan7"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_efi6r"]
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_1.tres" id="3_6xm63"]
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_2.tres" id="4_r3myj"]
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_3.tres" id="5_mrxl2"]
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_4.tres" id="6_mmqnh"]
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_5.tres" id="7_8d2gs"]
+[ext_resource type="Script" path="res://Item/ItemStrategySeed.gd" id="8_nii8r"]
+[ext_resource type="Texture2D" path="res://img_data/item/potato_seed_0.tres" id="9_6uk1c"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="10_ocxbr"]
+
+[sub_resource type="Resource" id="Resource_m1hxp"]
+script = ExtResource("8_nii8r")
+grow_time_sec = 6.0
+crop_generate_oxygen = 25
+seed_texture = ExtResource("9_6uk1c")
+crop_grow_textures = Array[Texture]([ExtResource("3_6xm63"), ExtResource("4_r3myj"), ExtResource("5_mrxl2"), ExtResource("6_mmqnh"), ExtResource("7_8d2gs")])
+product_item_filepath = "res://Item/ins/product/potato.tres"
+
+[sub_resource type="Resource" id="Resource_e0bjj"]
+script = ExtResource("10_ocxbr")
+buy_price = 15
+
+[resource]
+script = ExtResource("1_efi6r")
+item_name = "เมล็ดมันฝรั่ง"
+description = ""
+icon = ExtResource("1_daan7")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_m1hxp"), SubResource("Resource_e0bjj")])

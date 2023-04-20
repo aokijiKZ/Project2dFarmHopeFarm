@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Item" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_icon.tres" id="1_jh5oc"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_lup1f"]
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_1.tres" id="3_t5txs"]
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_2.tres" id="4_ubddv"]
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_3.tres" id="5_27l7u"]
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_4.tres" id="6_pkto6"]
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_5.tres" id="7_ihc7w"]
+[ext_resource type="Script" path="res://Item/ItemStrategySeed.gd" id="8_1k0ye"]
+[ext_resource type="Texture2D" path="res://img_data/item/strawberry_seed_0.tres" id="9_34vqc"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="10_2ax5c"]
+
+[sub_resource type="Resource" id="Resource_mxers"]
+script = ExtResource("8_1k0ye")
+grow_time_sec = 5.0
+crop_generate_oxygen = 40
+seed_texture = ExtResource("9_34vqc")
+crop_grow_textures = Array[Texture]([ExtResource("3_t5txs"), ExtResource("4_ubddv"), ExtResource("5_27l7u"), ExtResource("6_pkto6"), ExtResource("7_ihc7w")])
+product_item_filepath = "res://Item/ins/product/strawberry.tres"
+
+[sub_resource type="Resource" id="Resource_67ffh"]
+script = ExtResource("10_2ax5c")
+buy_price = 20
+
+[resource]
+script = ExtResource("1_lup1f")
+item_name = "เมล็ดสตอเบอรี่"
+description = ""
+icon = ExtResource("1_jh5oc")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_mxers"), SubResource("Resource_67ffh")])

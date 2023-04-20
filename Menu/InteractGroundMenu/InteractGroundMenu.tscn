@@ -1,0 +1,77 @@
+[gd_scene load_steps=5 format=3 uid="uid://csci0iavfrmty"]
+
+[ext_resource type="Texture2D" uid="uid://bikg7dxyr2cop" path="res://Menu/InteractGroundMenu/bg.png" id="1_csbvd"]
+[ext_resource type="Script" path="res://Menu/InteractGroundMenu/InteractGroundMenu.gd" id="1_gf6va"]
+[ext_resource type="Texture2D" uid="uid://dxepnhrs41err" path="res://Menu/InteractGroundMenu/bg_tutorial.png" id="2_lvls6"]
+[ext_resource type="PackedScene" uid="uid://crep0hfussfrl" path="res://MyButton/MyExitMenuButton.tscn" id="4_pbs0b"]
+
+[node name="InteractGroundMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_gf6va")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -160.0
+offset_top = -90.0
+offset_right = 160.0
+offset_bottom = 90.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_csbvd")
+
+[node name="groundBg" type="TextureRect" parent="Bg"]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="BgTutorial" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -20.0
+grow_horizontal = 2
+grow_vertical = 0
+texture = ExtResource("2_lvls6")
+
+[node name="Label" type="Label" parent="BgTutorial"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -61.0
+offset_top = -9.0
+offset_right = 62.0
+offset_bottom = 12.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 12
+text = "บอกว่าผู้เล่นต้องทำอะไร"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="ExitMenuButton" parent="." instance=ExtResource("4_pbs0b")]
+layout_mode = 1
+offset_left = 118.0
+offset_top = -62.0
+offset_right = 135.0
+offset_bottom = -52.0
+
+[connection signal="after_play_press_sound" from="ExitMenuButton" to="." method="_on_exit_menu_button_after_play_press_sound"]

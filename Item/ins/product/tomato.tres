@@ -1,0 +1,16 @@
+[gd_resource type="Resource" script_class="Item" load_steps=5 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/tomato_icon.tres" id="1_fuoib"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="2_8vu2w"]
+[ext_resource type="Script" path="res://Item/ItemStrategySell.gd" id="3_ih85h"]
+
+[sub_resource type="Resource" id="Resource_caxv4"]
+script = ExtResource("3_ih85h")
+sell_price = 20
+
+[resource]
+script = ExtResource("2_8vu2w")
+item_name = "มะเขือเทศ"
+description = ""
+icon = ExtResource("1_fuoib")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_caxv4")])

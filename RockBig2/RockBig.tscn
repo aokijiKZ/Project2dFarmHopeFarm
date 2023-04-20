@@ -1,0 +1,36 @@
+[gd_scene load_steps=5 format=3 uid="uid://chytjm7aqodlx"]
+
+[ext_resource type="Texture2D" uid="uid://b6qwn5b5yogr7" path="res://RockBig2/img/rock.tres" id="1_lbebw"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_eseqr"]
+radius = 5.0
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_fofo1"]
+radius = 4.88837
+height = 19.9481
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_f80h0"]
+radius = 3.57625
+height = 12.7956
+
+[node name="RockBig" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_eseqr")
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="."]
+position = Vector2(8, -4.76837e-07)
+rotation = 0.715585
+shape = SubResource("CapsuleShape2D_fofo1")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="."]
+position = Vector2(-1, 2)
+rotation = -1.01927
+shape = SubResource("CapsuleShape2D_f80h0")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -8)
+texture = ExtResource("1_lbebw")
+metadata/_edit_lock_ = true

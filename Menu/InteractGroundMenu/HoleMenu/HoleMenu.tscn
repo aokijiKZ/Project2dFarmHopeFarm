@@ -1,0 +1,39 @@
+[gd_scene load_steps=11 format=3 uid="uid://dnnj8tk0pnepc"]
+
+[ext_resource type="PackedScene" uid="uid://csci0iavfrmty" path="res://Menu/InteractGroundMenu/InteractGroundMenu.tscn" id="1_ceieu"]
+[ext_resource type="Script" path="res://Menu/InteractGroundMenu/HoleMenu/HoleMenu.gd" id="2_ccj3n"]
+[ext_resource type="Texture2D" uid="uid://vniffwouoxfo" path="res://Menu/InteractGroundMenu/HoleMenu/bg_1.png" id="3_wym5p"]
+[ext_resource type="Texture2D" uid="uid://bhd1cfjhhuf84" path="res://Menu/InteractGroundMenu/HoleMenu/bg_2.png" id="4_soxh4"]
+[ext_resource type="Texture2D" uid="uid://dw1tisvxe4gmx" path="res://Menu/InteractGroundMenu/HoleMenu/bg_3.png" id="5_87urg"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="6_2uonq"]
+[ext_resource type="Texture2D" uid="uid://c6cets72uameg" path="res://Menu/InteractGroundMenu/HoleMenu/wp1.png" id="7_i1b8w"]
+[ext_resource type="Texture2D" uid="uid://brhmqee2vinow" path="res://Menu/InteractGroundMenu/HoleMenu/wp3.png" id="8_krn8n"]
+[ext_resource type="Texture2D" uid="uid://cui3rrncbnu1q" path="res://Menu/InteractGroundMenu/HoleMenu/wp2.png" id="9_0np86"]
+[ext_resource type="AudioStream" uid="uid://ty4wess1rp34" path="res://Menu/InteractGroundMenu/HoleMenu/hit.wav" id="10_2vtwb"]
+
+[node name="HoleMenu" instance=ExtResource("1_ceieu")]
+script = ExtResource("2_ccj3n")
+bg_hole_grounds = Array[Texture]([ExtResource("3_wym5p"), ExtResource("4_soxh4"), ExtResource("5_87urg")])
+
+[node name="groundBg" parent="Bg" index="0"]
+texture = ExtResource("3_wym5p")
+
+[node name="Label" parent="BgTutorial" index="0"]
+text = "กดที่แท่นขุด เพื่อทำการขุดพื้น"
+
+[node name="HoleButton" parent="." index="3" instance=ExtResource("6_2uonq")]
+layout_mode = 1
+offset_left = -21.5
+offset_top = -34.5
+offset_right = 21.5
+offset_bottom = 34.5
+texture_normal = ExtResource("7_i1b8w")
+texture_pressed = ExtResource("8_krn8n")
+texture_hover = ExtResource("9_0np86")
+ignore_texture_size = true
+press_sound = ExtResource("10_2vtwb")
+
+[connection signal="count_changed" from="." to="." method="_on_count_changed"]
+[connection signal="after_play_press_sound" from="HoleButton" to="." method="_on_hole_button_after_play_press_sound"]
+[connection signal="mouse_entered" from="HoleButton" to="." method="_on_hole_button_mouse_entered"]
+[connection signal="mouse_exited" from="HoleButton" to="." method="_on_hole_button_mouse_exited"]

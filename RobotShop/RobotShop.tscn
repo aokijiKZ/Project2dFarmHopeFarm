@@ -1,0 +1,42 @@
+[gd_scene load_steps=5 format=3 uid="uid://dtmif21sg34gm"]
+
+[ext_resource type="Texture2D" uid="uid://pio1aiehad28" path="res://RobotShop/shop (1).png" id="1_b4a0x"]
+[ext_resource type="Script" path="res://RobotShop/RobotShop.gd" id="1_xixgi"]
+[ext_resource type="PackedScene" uid="uid://b4v85ddke6qgi" path="res://FarmerAndMouseDetector/FarmerAndMouseDectector.tscn" id="2_l7foe"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_pculm"]
+size = Vector2(20, 10)
+
+[node name="RobotShop" type="StaticBody2D"]
+script = ExtResource("1_xixgi")
+shop_menu_path = "res://Menu/ShopMenu/ShopMenu.tscn"
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -13)
+texture = ExtResource("1_b4a0x")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+visible = false
+position = Vector2(0, -5)
+shape = SubResource("RectangleShape2D_pculm")
+
+[node name="FarmerAndMouseDectector" parent="." instance=ExtResource("2_l7foe")]
+position = Vector2(0, -10)
+
+[node name="FarmerHitBox" parent="FarmerAndMouseDectector" index="0"]
+priority = 1.0
+
+[node name="CollisionShape2D" parent="FarmerAndMouseDectector/FarmerHitBox" index="0"]
+position = Vector2(0, 1)
+
+[node name="MouseHitBox" parent="FarmerAndMouseDectector" index="1"]
+priority = 1.0
+
+[node name="CollisionShape2D" parent="FarmerAndMouseDectector/MouseHitBox" index="0"]
+position = Vector2(0, -3)
+
+[connection signal="farmer_and_mouse_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_farmer_and_mouse_in_area"]
+[connection signal="farmer_and_mouse_not_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_farmer_and_mouse_not_in_area"]
+[connection signal="left_mouse_clicked_while_farmer_and_mouse_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_left_mouse_clicked_while_farmer_and_mouse_in_area"]
+
+[editable path="FarmerAndMouseDectector"]

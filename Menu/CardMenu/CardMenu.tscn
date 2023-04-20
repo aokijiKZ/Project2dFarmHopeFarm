@@ -1,0 +1,249 @@
+[gd_scene load_steps=28 format=3 uid="uid://cxxaojwi10opc"]
+
+[ext_resource type="Script" path="res://Menu/CardMenu/CardMenu.gd" id="1_7u2nv"]
+[ext_resource type="PackedScene" uid="uid://bm7cn82h2coep" path="res://Card/Card_0.tscn" id="2_1jfkj"]
+[ext_resource type="Texture2D" uid="uid://c2vbichppvhu1" path="res://Menu/CardMenu/cardUI_1.png" id="2_vlne2"]
+[ext_resource type="PackedScene" uid="uid://cc2a55qr2ae6h" path="res://Card/Card_1.tscn" id="3_4jms1"]
+[ext_resource type="Texture2D" uid="uid://c88v4nd0kh7be" path="res://Menu/CardMenu/bg (6).png" id="3_16tur"]
+[ext_resource type="PackedScene" uid="uid://crep0hfussfrl" path="res://MyButton/MyExitMenuButton.tscn" id="3_s0jig"]
+[ext_resource type="Texture2D" uid="uid://ofpuyiy8rqn1" path="res://Menu/CardMenu/bg_allcard.png" id="4_80krw"]
+[ext_resource type="PackedScene" uid="uid://b4q36rndjxw8q" path="res://Card/Card_2.tscn" id="4_bxykc"]
+[ext_resource type="PackedScene" uid="uid://q8qlnqqumq1w" path="res://Card/Card_3.tscn" id="5_etq12"]
+[ext_resource type="PackedScene" uid="uid://cu7w55p6xkiwh" path="res://Card/Card_4.tscn" id="6_8ytc4"]
+[ext_resource type="PackedScene" uid="uid://bc2q24a53bb2u" path="res://Card/Card_5.tscn" id="7_8xhhm"]
+[ext_resource type="PackedScene" uid="uid://0v5uh6w4xsmk" path="res://MyTextureButton/MyTextureButton.tscn" id="7_iaymx"]
+[ext_resource type="Texture2D" uid="uid://d3oynuck2vxbj" path="res://Menu/CardMenu/bg_cardchoose.png" id="7_nfebg"]
+[ext_resource type="PackedScene" uid="uid://desjwy18fy7s8" path="res://MyLabel/MyLabel.tscn" id="8_30d1c"]
+[ext_resource type="Script" path="res://MyTextureButton/SelectCard.gd" id="9_5e7ge"]
+[ext_resource type="PackedScene" uid="uid://dsws8s71k2sak" path="res://MyTextureButton/MyTutorialButton.tscn" id="10_oyovh"]
+[ext_resource type="Texture2D" uid="uid://bk4y1wjad1dg6" path="res://Menu/CardMenu/bg_detail.png" id="11_xxqmt"]
+[ext_resource type="Texture2D" uid="uid://c73sxy4ox0mer" path="res://Menu/CardMenu/bg_description.png" id="12_vw250"]
+[ext_resource type="Texture2D" uid="uid://c5aansfrhn2er" path="res://Menu/CardMenu/bg_buff.png" id="13_m5xfn"]
+[ext_resource type="Texture2D" uid="uid://botevtfnnbhin" path="res://Menu/CardMenu/read_more1.png" id="14_371fh"]
+[ext_resource type="Texture2D" uid="uid://towavkf4fq8m" path="res://Menu/CardMenu/read_more2.png" id="15_kcika"]
+[ext_resource type="Texture2D" uid="uid://ks0v8gybk7l2" path="res://Menu/CardMenu/read_more3.png" id="16_1kt2h"]
+[ext_resource type="PackedScene" uid="uid://dx8sgxag617ow" path="res://MyRichTextLabel/MyRichTextLabel.tscn" id="16_nsnfo"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_0iu6w"]
+texture = ExtResource("4_80krw")
+region_rect = Rect2(5, 5, 184, 48)
+
+[sub_resource type="Theme" id="Theme_pwuh8"]
+
+[sub_resource type="Animation" id="Animation_mc63p"]
+resource_name = "idle"
+length = 0.4
+loop_mode = 1
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath(".:texture")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 0.2, 0.4),
+"transitions": PackedFloat32Array(1, 1, 1),
+"update": 1,
+"values": [ExtResource("14_371fh"), ExtResource("15_kcika"), ExtResource("16_1kt2h")]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_yew5t"]
+_data = {
+"idle": SubResource("Animation_mc63p")
+}
+
+[node name="CardMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_7u2nv")
+card_button_path = "res://Menu/CardMenu/CardButton.tscn"
+text_desc_menu_path = "res://Menu/TextDescMenu/TextDescMenu.tscn"
+tutorial_title_text = "ใส่การ์ดยังไง?"
+tutorial_content_text = "การใส่การ์ดทำได้โดยการลากการ์ด ที่ปลดล็อกแล้ว ไปยังแท่นเสียบการ์ด"
+dialog_scene_path = "res://DialogScene/DialogicScene.tscn"
+dialogic_timeline_path = "res://dialogic/Timeline/card.dtl"
+all_card = Array[PackedScene]([ExtResource("2_1jfkj"), ExtResource("3_4jms1"), ExtResource("4_bxykc"), ExtResource("5_etq12"), ExtResource("6_8ytc4"), ExtResource("7_8xhhm")])
+
+[node name="CardUi(1)" type="Sprite2D" parent="."]
+visible = false
+position = Vector2(160, 91)
+texture = ExtResource("2_vlne2")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -73.0
+offset_right = 112.0
+offset_bottom = 81.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("3_16tur")
+
+[node name="ExitMenuButton" parent="." instance=ExtResource("3_s0jig")]
+layout_mode = 1
+offset_left = 99.5
+offset_top = -76.0
+offset_right = 116.5
+offset_bottom = -66.0
+
+[node name="AllCardBG" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 63.0
+offset_top = 100.0
+offset_right = 257.0
+offset_bottom = 158.0
+texture = ExtResource("4_80krw")
+
+[node name="ScrollContainer" type="ScrollContainer" parent="AllCardBG"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 5.0
+offset_right = 189.0
+offset_bottom = 53.0
+theme_override_styles/panel = SubResource("StyleBoxTexture_0iu6w")
+
+[node name="HBoxContainer" type="HBoxContainer" parent="AllCardBG/ScrollContainer"]
+layout_mode = 2
+theme = SubResource("Theme_pwuh8")
+
+[node name="SelectCard" parent="." instance=ExtResource("7_iaymx")]
+layout_mode = 1
+offset_left = -97.0
+offset_top = -54.0
+offset_right = -47.0
+offset_bottom = 4.0
+texture_normal = ExtResource("7_nfebg")
+script = ExtResource("9_5e7ge")
+metadata/_edit_group_ = true
+
+[node name="Label" type="Label" parent="SelectCard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -19.0
+offset_top = -23.0
+offset_right = 19.0
+offset_bottom = 23.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 6
+text = "ลากการ์ดมาวางเพื่อสวมใส่"
+horizontal_alignment = 1
+vertical_alignment = 1
+autowrap_mode = 3
+
+[node name="card_pic" type="TextureRect" parent="SelectCard"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+stretch_mode = 5
+
+[node name="TitleLabel" parent="." instance=ExtResource("8_30d1c")]
+layout_mode = 1
+offset_left = -42.0
+offset_top = -86.0
+offset_right = 42.0
+offset_bottom = -62.0
+text = "การ์ด"
+
+[node name="TutorialButton" parent="." instance=ExtResource("10_oyovh")]
+layout_mode = 1
+offset_left = -129.0
+offset_top = -64.0
+offset_right = -111.0
+offset_bottom = -47.0
+
+[node name="bg_detail" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 119.0
+offset_top = 36.0
+offset_right = 257.0
+offset_bottom = 94.0
+texture = ExtResource("11_xxqmt")
+stretch_mode = 3
+
+[node name="bg_desc" type="TextureRect" parent="bg_detail"]
+layout_mode = 0
+offset_left = 5.0
+offset_top = 4.0
+offset_right = 75.0
+offset_bottom = 53.0
+texture = ExtResource("12_vw250")
+
+[node name="Indicator" type="TextureRect" parent="bg_detail/bg_desc"]
+layout_mode = 0
+offset_left = 58.0
+offset_top = 37.0
+offset_right = 69.0
+offset_bottom = 48.0
+texture = ExtResource("14_371fh")
+stretch_mode = 3
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="bg_detail/bg_desc/Indicator"]
+autoplay = "idle"
+libraries = {
+"": SubResource("AnimationLibrary_yew5t")
+}
+
+[node name="DescText" parent="bg_detail/bg_desc" instance=ExtResource("16_nsnfo")]
+layout_mode = 1
+offset_left = -33.0
+offset_top = -22.5
+offset_right = 33.0
+offset_bottom = 21.5
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+
+[node name="bg_buff" type="TextureRect" parent="bg_detail"]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -59.0
+offset_top = 4.0
+offset_right = -5.0
+offset_bottom = 53.0
+grow_horizontal = 0
+texture = ExtResource("13_m5xfn")
+stretch_mode = 3
+
+[node name="BuffText" parent="bg_detail/bg_buff" instance=ExtResource("16_nsnfo")]
+layout_mode = 1
+offset_left = -24.0
+offset_top = -22.5
+offset_right = 25.0
+offset_bottom = 21.5
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+
+[connection signal="after_play_press_sound" from="ExitMenuButton" to="." method="_on_exit_menu_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="SelectCard" to="." method="_on_select_card_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="TutorialButton" to="." method="_on_tutorial_button_after_play_press_sound"]

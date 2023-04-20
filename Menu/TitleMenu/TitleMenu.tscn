@@ -1,0 +1,94 @@
+[gd_scene load_steps=12 format=3 uid="uid://ifivfmtcgvvv"]
+
+[ext_resource type="Texture2D" uid="uid://bawkt4rjtq7an" path="res://Menu/TitleMenu/bg (3).png" id="1_oy4fm"]
+[ext_resource type="Script" path="res://Menu/TitleMenu/TitleMenu.gd" id="1_vsw2j"]
+[ext_resource type="PackedScene" uid="uid://bas7ky7128ehe" path="res://Menu/SettingMenu/SettingMenu.tscn" id="2_ci4yl"]
+[ext_resource type="Texture2D" uid="uid://bis05lpwgsyj1" path="res://Menu/TitleMenu/menu.png" id="2_m1o52"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="3_tocu1"]
+[ext_resource type="PackedScene" uid="uid://dyuhkxp6s7b3s" path="res://Menu/LevelSelectMenu/LevelSelectMenu.tscn" id="3_ynahr"]
+[ext_resource type="Texture2D" uid="uid://cudm0gnfer6o5" path="res://Menu/TitleMenu/button (2).png" id="4_bpl4f"]
+[ext_resource type="Texture2D" uid="uid://b7gv5rqgcxh7c" path="res://Menu/TitleMenu/button_choose (1).png" id="5_g841g"]
+[ext_resource type="AudioStream" uid="uid://ce7xqpm2ywt6l" path="res://Menu/TitleMenu/music.wav" id="7_4q0x5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_ykqfm"]
+texture = ExtResource("4_bpl4f")
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_6cx67"]
+texture = ExtResource("5_g841g")
+
+[node name="TitleMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_vsw2j")
+setting_scene = ExtResource("2_ci4yl")
+start_scene = ExtResource("3_ynahr")
+dialog_scene_path = "res://DialogScene/DialogicScene.tscn"
+dialogic_timeline_path = "res://dialogic/Timeline/intro.dtl"
+
+[node name="Menu" type="Sprite2D" parent="."]
+position = Vector2(160, 90)
+texture = ExtResource("2_m1o52")
+
+[node name="bg" type="TextureRect" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_oy4fm")
+
+[node name="StartButton" parent="." instance=ExtResource("3_tocu1")]
+layout_mode = 1
+offset_left = -135.0
+offset_top = -26.0
+offset_right = -67.0
+offset_bottom = -7.0
+theme_override_colors/font_hover_color = Color(0.529412, 0.529412, 0.529412, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_ykqfm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6cx67")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ykqfm")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6cx67")
+text = "เริ่มเกม"
+
+[node name="SettingButton" parent="." instance=ExtResource("3_tocu1")]
+layout_mode = 1
+offset_left = -135.0
+offset_top = -4.0
+offset_right = -67.0
+offset_bottom = 15.0
+theme_override_colors/font_hover_color = Color(0.529412, 0.529412, 0.529412, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_ykqfm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6cx67")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ykqfm")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6cx67")
+text = "ตั้งค่า"
+
+[node name="ExitButton" parent="." instance=ExtResource("3_tocu1")]
+layout_mode = 1
+offset_left = -135.0
+offset_top = 16.0
+offset_right = -67.0
+offset_bottom = 35.0
+theme_override_colors/font_hover_color = Color(0.529412, 0.529412, 0.529412, 1)
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_ykqfm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_6cx67")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_ykqfm")
+theme_override_styles/focus = SubResource("StyleBoxTexture_6cx67")
+text = "ออกเกม"
+
+[node name="TitleMusic" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("7_4q0x5")
+autoplay = true
+bus = &"Music"
+
+[connection signal="after_play_press_sound" from="StartButton" to="." method="_on_start_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="SettingButton" to="." method="_on_setting_button_after_play_press_sound"]
+[connection signal="after_play_press_sound" from="ExitButton" to="." method="_on_exit_button_after_play_press_sound"]

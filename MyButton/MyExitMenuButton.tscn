@@ -1,0 +1,23 @@
+[gd_scene load_steps=7 format=3 uid="uid://crep0hfussfrl"]
+
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="1_3t0t8"]
+[ext_resource type="Texture2D" uid="uid://doic2tgyflqpx" path="res://MyButton/botton_exit.png" id="2_xatxy"]
+[ext_resource type="AudioStream" uid="uid://byjj88hupugre" path="res://addons/kenney_interface_sounds/back_003.wav" id="3_qbbj5"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_nwmrm"]
+texture = ExtResource("2_xatxy")
+
+[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_f4b0y"]
+load_path = "res://.godot/imported/botton_exit.png-f4e2e6216d7d7fe00ec7cce248a73788.ctex"
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_rlfc4"]
+texture = SubResource("CompressedTexture2D_f4b0y")
+modulate_color = Color(0.333333, 0.333333, 0.333333, 1)
+
+[node name="MyExitMenuButton" instance=ExtResource("1_3t0t8")]
+offset_left = -8.5
+offset_right = 8.5
+theme_override_styles/normal = SubResource("StyleBoxTexture_nwmrm")
+theme_override_styles/hover = SubResource("StyleBoxTexture_rlfc4")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_nwmrm")
+press_sound = ExtResource("3_qbbj5")

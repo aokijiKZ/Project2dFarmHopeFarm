@@ -1,0 +1,31 @@
+[gd_resource type="Resource" script_class="Item" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_icon.tres" id="1_0guva"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="2_1l3xk"]
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_1.tres" id="3_o3cbv"]
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_2.tres" id="4_3mil4"]
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_3.tres" id="5_4fn8a"]
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_4.tres" id="6_hr7a4"]
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_5.tres" id="7_ggltb"]
+[ext_resource type="Script" path="res://Item/ItemStrategySeed.gd" id="8_ogu5v"]
+[ext_resource type="Texture2D" path="res://img_data/item/watermelon_seed_0.tres" id="9_x0bgo"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="10_ybp8n"]
+
+[sub_resource type="Resource" id="Resource_mxers"]
+script = ExtResource("8_ogu5v")
+grow_time_sec = 10.0
+crop_generate_oxygen = 75
+seed_texture = ExtResource("9_x0bgo")
+crop_grow_textures = Array[Texture]([ExtResource("3_o3cbv"), ExtResource("4_3mil4"), ExtResource("5_4fn8a"), ExtResource("6_hr7a4"), ExtResource("7_ggltb")])
+product_item_filepath = "res://Item/ins/product/watermelon.tres"
+
+[sub_resource type="Resource" id="Resource_67ffh"]
+script = ExtResource("10_ybp8n")
+buy_price = 30
+
+[resource]
+script = ExtResource("2_1l3xk")
+item_name = "เมล็ดแตงโม"
+description = ""
+icon = ExtResource("1_0guva")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_mxers"), SubResource("Resource_67ffh")])

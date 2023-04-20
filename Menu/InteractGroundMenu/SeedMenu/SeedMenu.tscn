@@ -1,0 +1,72 @@
+[gd_scene load_steps=8 format=3 uid="uid://ce4t0gewgq5o0"]
+
+[ext_resource type="PackedScene" uid="uid://csci0iavfrmty" path="res://Menu/InteractGroundMenu/InteractGroundMenu.tscn" id="1_6bmpa"]
+[ext_resource type="Texture2D" uid="uid://k6mbkxravgtn" path="res://Menu/InteractGroundMenu/SeedMenu/bg_ground.png" id="2_2ex57"]
+[ext_resource type="Script" path="res://Menu/InteractGroundMenu/SeedMenu/SeedMenu.gd" id="2_5tlfd"]
+[ext_resource type="Texture2D" uid="uid://bypsh8wnp14j5" path="res://Menu/InteractGroundMenu/SeedMenu/bg.png" id="4_jv04v"]
+[ext_resource type="Script" path="res://Menu/InteractGroundMenu/SeedMenu/SeedReciver.gd" id="5_742mv"]
+[ext_resource type="PackedScene" uid="uid://yt78ienq0mfx" path="res://UI/InventoryBag.tscn" id="5_xm3in"]
+[ext_resource type="AudioStream" uid="uid://yoxoendvexto" path="res://Menu/InteractGroundMenu/SeedMenu/seed.mp3" id="8_menvk"]
+
+[node name="SeedMenu" instance=ExtResource("1_6bmpa")]
+script = ExtResource("2_5tlfd")
+seed_sound = ExtResource("8_menvk")
+
+[node name="groundBg" parent="Bg" index="0"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -112.0
+offset_top = -42.0
+offset_right = 112.0
+offset_bottom = 38.0
+texture = ExtResource("2_2ex57")
+
+[node name="Label" parent="BgTutorial" index="0"]
+text = "ลากเมล็ดจาก เมนูด้านซ้าย ลงหลุมเพื่อทำการปลูก"
+
+[node name="BgSeedItems" type="TextureRect" parent="." index="3"]
+layout_mode = 0
+offset_left = 32.0
+offset_top = 32.0
+offset_right = 128.0
+offset_bottom = 144.0
+texture = ExtResource("4_jv04v")
+
+[node name="InventoryBag" parent="." index="4" instance=ExtResource("5_xm3in")]
+layout_mode = 1
+offset_left = 32.0
+offset_top = -58.0
+offset_right = 128.0
+offset_bottom = 54.0
+item_type_filter = "seed"
+drag_enabled = true
+
+[node name="CloseButton" parent="InventoryBag" index="1"]
+visible = false
+
+[node name="SeedReciver" type="TextureRect" parent="." index="5"]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -20.0
+offset_right = 20.0
+offset_bottom = 20.0
+grow_horizontal = 2
+grow_vertical = 2
+stretch_mode = 5
+script = ExtResource("5_742mv")
+
+[node name="SeedSoundPlayer" type="AudioStreamPlayer" parent="." index="6"]
+stream = ExtResource("8_menvk")
+bus = &"Effect"
+
+[connection signal="seed_recived" from="SeedReciver" to="." method="_on_seed_reciver_seed_recived"]
+
+[editable path="InventoryBag"]

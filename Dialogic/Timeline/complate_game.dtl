@@ -1,0 +1,62 @@
+[music path="res://Menu/TitleMenu/music.wav"]
+[background arg="res://dialogic/intro_img/bg_intro_complete.png"]
+Join boss_character 1
+boss_character:ในที่สุด คุณก็ทำภารกิจช่วยมนุษยชาติได้สำเร็จ ยอดเยี่ยมมากอาธาเนียล!
+boss_character:พวกเราองค์กร Hope ไม่สิ... พวกเราทุกคนบนโลกเป็นหนี้คุณซะเเล้ว
+Join main_character 4
+main_character:มันเป็นสิ่งที่พวกเราต้องช่วยกันอยู่เเล้วครับ
+boss_character:เพื่อเป็นเกียรติเเก่คุณ พวกเราได้ตั้งชื่อของโลกใหม่ไว้เเล้ว นั่นคือ "นาธอส"
+main_character:เป็นเกียรติมากเลยครับ!
+boss_character:ครั้งนี้พวกเราทุกคนบนโลก คงได้ตะหนักถึงภัยของธรรมชาติหรือปัญหาด้านสิ่งเเวดล้อมเเล้ว
+boss_character:เพราะไม่ใช่ว่าโอกาสที่ธรรมชาติให้จะมาหาเราเสมอ เรื่องใกล้ตัวที่เรามองข้ามอาจทำให้เกิดภัยที่รอวันระเบิดออกมา
+boss_character:สิ่งที่สูญเสียไปเเล้ว ไม่สามารถเอากลับมาคืนได้
+boss_character:เอาล่ะ พวกเราจะรีบส่งกำลังเเละอุปกรณ์ไปเสริมทันที We are Hope! ขอบคุณนายมากจริงๆ
+main_character:We are Hope! ขอบคุณเช่นกันครับ
+Leave --All--
+[wait]
+[background arg="res://dialogic/intro_img/Intro3.png"]
+10 ปีผ่านไป...
+[wait]
+[background arg="res://dialogic/intro_img/IMG_5364.PNG"]
+[wait]
+10 ปีผ่านไป โลกใหม่ "นาธอส" ก็สามารถฟื้นฟูสิ่งก่อสร้างต่างๆได้สมบูรณ์ ระเอียดจนที่ว่าวิเคราะห์วัสดุที่ใช้มีผลกระทบต่อสิ่งเเวดล้อมมากเเค่ไหน?
+[background arg="res://dialogic/intro_img/IMG_5365.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5366.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5367.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5368.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5369.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5370.PNG"]
+[wait time="0.5"]
+มีทั้งพื้นที่สำหรับทิ้งขยะโดยเฉพาะ ระบบพลังงานที่อนุรักษ์สิ่งเเวดล้อม เเละ มีการให้ความรู้เกี่ยวกับสิ่งเเวดล้อมตั้งเเต่เด็ก ฯลฯ
+[background arg="res://dialogic/intro_img/IMG_5371.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5372.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5373.PNG"]
+[wait time="0.5"]
+ส่วนผู้คนที่ผ่านเหตุการณ์นี้มา ก็ได้ตะหนักถึงปัญหาด้านสิ่งเเวดล้อม ทุกคนบนโลกใหม่ต่างรับผิดชอบต่อสังคม
+[background arg="res://dialogic/intro_img/IMG_5374.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5375.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5376.PNG"]
+[wait time="0.5"]
+[background arg="res://dialogic/intro_img/IMG_5377.PNG"]
+[wait time="0.5"]
+จำไว้เสมอว่า "โอกาสไม่ได้มีมาตลอด..."
+[background]
+[wait]
+ไม่จำเป็นที่ต้องรอคนอื่น เพียงเริ่มที่ตัวเราเอง
+จะเป็นเรื่องใกล้ตัวหรือเเค่เราคิด มันก็สำเร็จไปเเล้ว 50% ที่เหลือเเค่เราลงมือทำก็สามารถเติมเต็มให้ 100% ได้
+เพียง 1 เรื่อง เริ่มที่ตัวเองนับ 1 ครั้ง คนรอบข้างก็เริ่มที่ 1 ครั้ง พวกเรากว่าหลายพันล้านคน นับหลายพันล้านครั้ง 
+เเค่ 1 ครั้ง ก็สามารถช่วยให้โลกของเราน่าอยู่ยิ่งขึ้นได้เเล้ว
+ถ้าไม่เริ่มตอนนี้ จะเริ่มตอนไหนล่ะ?.....
+[wait]
+ขอบคุณ.
+[wait]
+

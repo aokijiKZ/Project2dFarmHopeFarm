@@ -1,0 +1,45 @@
+[gd_scene load_steps=7 format=3 uid="uid://jt5ojvejyfnt"]
+
+[ext_resource type="Texture2D" path="res://Tree/img/Tree_0.tres" id="1_j2pnj"]
+[ext_resource type="Script" path="res://Tree/Tree.gd" id="1_orgay"]
+[ext_resource type="Texture2D" path="res://Tree/img/Tree_1.tres" id="2_7u2cn"]
+[ext_resource type="Texture2D" path="res://Tree/img/Tree_2.tres" id="3_bftsg"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_oobpt"]
+radius = 2.0
+height = 12.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_jasqh"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_j2pnj")
+}, {
+"duration": 1.0,
+"texture": ExtResource("2_7u2cn")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_bftsg")
+}],
+"loop": true,
+"name": &"default",
+"speed": 5.0
+}]
+
+[node name="Tree" type="Node2D"]
+script = ExtResource("1_orgay")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(0, -3.55271e-15)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -1)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_oobpt")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+texture_filter = 1
+position = Vector2(0, -14)
+sprite_frames = SubResource("SpriteFrames_jasqh")
+autoplay = "default"
+frame_progress = 0.830495

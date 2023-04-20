@@ -1,0 +1,151 @@
+[gd_scene load_steps=9 format=3 uid="uid://dqbjij5ap0nm2"]
+
+[ext_resource type="Script" path="res://AirDrop/AirDrop.gd" id="1_iglq6"]
+[ext_resource type="Texture2D" uid="uid://xun4dfv1v0c3" path="res://AirDrop/box1.png" id="1_yvil6"]
+[ext_resource type="PackedScene" uid="uid://b4v85ddke6qgi" path="res://FarmerAndMouseDetector/FarmerAndMouseDectector.tscn" id="3_42jq1"]
+[ext_resource type="Script" path="res://AirDrop/drop_time_display.gd" id="4_ujg3t"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_nelyj"]
+size = Vector2(38, 15)
+
+[sub_resource type="Animation" id="Animation_2w5d6"]
+length = 0.001
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Vector2(0, -136)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 0,
+"values": [Color(1, 1, 1, 0)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FarmerAndMouseDectector/FarmerHitBox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(0),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [true]
+}
+
+[sub_resource type="Animation" id="Animation_yd208"]
+resource_name = "drop"
+tracks/0/type = "value"
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/path = NodePath("Sprite2D:position")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Vector2(0, -136), Vector2(0, -8)]
+}
+tracks/1/type = "value"
+tracks/1/imported = false
+tracks/1/enabled = true
+tracks/1/path = NodePath("Sprite2D:self_modulate")
+tracks/1/interp = 1
+tracks/1/loop_wrap = true
+tracks/1/keys = {
+"times": PackedFloat32Array(0, 1),
+"transitions": PackedFloat32Array(1, 1),
+"update": 0,
+"values": [Color(1, 1, 1, 0), Color(1, 1, 1, 1)]
+}
+tracks/2/type = "value"
+tracks/2/imported = false
+tracks/2/enabled = true
+tracks/2/path = NodePath("FarmerAndMouseDectector/FarmerHitBox/CollisionShape2D:disabled")
+tracks/2/interp = 1
+tracks/2/loop_wrap = true
+tracks/2/keys = {
+"times": PackedFloat32Array(1),
+"transitions": PackedFloat32Array(1),
+"update": 1,
+"values": [false]
+}
+
+[sub_resource type="AnimationLibrary" id="AnimationLibrary_dsax8"]
+_data = {
+"RESET": SubResource("Animation_2w5d6"),
+"drop": SubResource("Animation_yd208")
+}
+
+[node name="AirDrop" type="StaticBody2D"]
+script = ExtResource("1_iglq6")
+floating_item_path = "res://FloatingReciveItem/FloatingReciveItem.tscn"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -1.5)
+shape = SubResource("RectangleShape2D_nelyj")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+self_modulate = Color(1, 1, 1, 0)
+position = Vector2(0, -136)
+texture = ExtResource("1_yvil6")
+
+[node name="FarmerAndMouseDectector" parent="." instance=ExtResource("3_42jq1")]
+
+[node name="CollisionShape2D" parent="FarmerAndMouseDectector/FarmerHitBox" index="0"]
+position = Vector2(0, -5)
+disabled = true
+
+[node name="CollisionShape2D" parent="FarmerAndMouseDectector/MouseHitBox" index="0"]
+position = Vector2(-0.5, -5)
+
+[node name="AnimationPlayer" type="AnimationPlayer" parent="."]
+libraries = {
+"": SubResource("AnimationLibrary_dsax8")
+}
+
+[node name="z_index_5" type="Node2D" parent="."]
+z_index = 5
+z_as_relative = false
+
+[node name="drop_time_display" type="Label" parent="z_index_5"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -5.0
+offset_top = -28.0
+offset_right = 10.0
+offset_bottom = -15.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 6
+text = "5.00"
+horizontal_alignment = 3
+vertical_alignment = 1
+script = ExtResource("4_ujg3t")
+
+[node name="Timer" type="Timer" parent="z_index_5/drop_time_display"]
+one_shot = true
+
+[connection signal="farmer_and_mouse_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_farmer_and_mouse_in_area"]
+[connection signal="farmer_and_mouse_not_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_farmer_and_mouse_not_in_area"]
+[connection signal="left_mouse_clicked_while_farmer_and_mouse_in_area" from="FarmerAndMouseDectector" to="." method="_on_farmer_and_mouse_dectector_left_mouse_clicked_while_farmer_and_mouse_in_area"]
+
+[editable path="FarmerAndMouseDectector"]

@@ -1,0 +1,11 @@
+[gd_scene load_steps=3 format=3 uid="uid://bc2q24a53bb2u"]
+
+[ext_resource type="PackedScene" uid="uid://bykc62haaji2n" path="res://Card/Card.tscn" id="1_v3gsg"]
+[ext_resource type="Texture2D" uid="uid://7ug7j4uvfdmq" path="res://Card/imageCard6.png" id="2_xi55v"]
+
+[node name="Card_5" instance=ExtResource("1_v3gsg")]
+card_name = "ถุงกระดาษ!?"
+desc = "คุณรู้หรือไม่ ถุงกระดาษ 1 ตัน เท่ากับการสูญเสียทรัพยากรสิ่งแวดล้อมอย่างต้นไม้ถึง 17 ต้น ในการผลิตถุงกระดาษ 1 ใบ ทำให้เกิดมลพิษทางอาการเพิ่มขึ้นถึง 2.6 กิโลกรัม และก่อมลพิษทางน้ำเลวร้ายกว่าการผลิตถุงพลาสติก 50 เท่าตัว เพื่อเป็นการลดการสร้างมลพิษควรนำกลับมารีไซเคิลหรือนำกลับมาใช้ใหม่นั่นเอง"
+pic = ExtResource("2_xi55v")
+buff_energy = 10
+buff_start_item_names = Array[String](["small_unlimit_energy_potion"])

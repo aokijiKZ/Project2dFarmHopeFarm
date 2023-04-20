@@ -1,0 +1,14 @@
+[remap]
+
+importer="image"
+type="Image"
+uid="uid://bdru6s5m1tbhy"
+path="res://.godot/imported/bg_intro_complete.png-fc913b53bec8fb47d0d1405e7818d899.image"
+
+[deps]
+
+source_file="res://dialogic/intro_img/bg_intro_complete.png"
+dest_files=["res://.godot/imported/bg_intro_complete.png-fc913b53bec8fb47d0d1405e7818d899.image"]
+
+[params]
+

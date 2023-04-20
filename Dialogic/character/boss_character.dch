@@ -1,0 +1,37 @@
+{
+"@path": "res://addons/dialogic/Resources/character.gd",
+"@subpath": NodePath(""),
+"color": Color(1, 0.984314, 0, 1),
+"custom_info": {
+"sound_mood_default": "main",
+"sound_moods": {
+"main": {
+"name": "main",
+"pitch_base": 1.0,
+"pitch_variance": 0.0,
+"sound_folder": "res://addons/dialogic/Example Assets/sound-effects",
+"volume_base": 0.0,
+"volume_variance": 0.0
+}
+},
+"style": ""
+},
+"default_portrait": "boss",
+"description": "",
+"display_name": "หัวหน้าภารกิจ",
+"mirror": false,
+"nicknames": [""],
+"offset": Vector2(0, 0),
+"portraits": {
+"boss": {
+"image": "res://dialogic/char_img/boss.png",
+"mirror": false,
+"offset": Vector2(0, 0),
+"scale": 3.0,
+"scene": "",
+"sound_mood": "main",
+"sound_mood_default": "main"
+}
+},
+"scale": 1.0
+}

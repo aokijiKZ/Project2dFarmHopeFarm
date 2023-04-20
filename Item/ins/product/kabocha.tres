@@ -1,0 +1,24 @@
+[gd_resource type="Resource" script_class="Item" load_steps=3 format=3]
+
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_0f8gs"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_icon.tres" id="1_n6sm0"]
+
+[resource]
+script = ExtResource("1_0f8gs")
+item_name = "ฟักทอง"
+description = ""
+icon = ExtResource("1_n6sm0")
+quantity = 1
+is_sellable = false
+is_buyable = false
+buy_price = 0
+sell_price = 0
+is_useable = false
+is_consumed_on_use = false
+restore_stamina = 0
+unlimit_stamina_time_sec = 0.0
+is_seedable = false
+grow_time_sec = 5.0
+crop_grow_textures = Array[Texture]([])
+crop_generate_oxygen = 0
+product_item_filepath = ""

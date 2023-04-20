@@ -1,0 +1,105 @@
+[gd_scene load_steps=7 format=3 uid="uid://cf7yur5voebgi"]
+
+[ext_resource type="Script" path="res://Menu/NewCardMenu/NewCardMenu.gd" id="1_7p4m4"]
+[ext_resource type="Texture2D" uid="uid://usmd3vdjr12n" path="res://Menu/NewCardMenu/img/UI_NEWCARD.png" id="1_gq56c"]
+[ext_resource type="Texture2D" uid="uid://b8gluu8hvrbwr" path="res://Menu/NewCardMenu/img/bg.png" id="2_m5k3c"]
+[ext_resource type="PackedScene" uid="uid://crep0hfussfrl" path="res://MyButton/MyExitMenuButton.tscn" id="3_0gnfn"]
+[ext_resource type="PackedScene" uid="uid://dx8sgxag617ow" path="res://MyRichTextLabel/MyRichTextLabel.tscn" id="5_i3eut"]
+
+[sub_resource type="PlaceholderTexture2D" id="PlaceholderTexture2D_3ccq8"]
+
+[node name="NewCardMenu" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(1.002, 1)
+script = ExtResource("1_7p4m4")
+
+[node name="ex" type="TextureRect" parent="."]
+visible = false
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+texture = ExtResource("1_gq56c")
+
+[node name="Bg" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 41.0
+offset_top = 18.0
+offset_right = 279.0
+offset_bottom = 162.0
+texture = ExtResource("2_m5k3c")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -114.0
+offset_top = -66.0
+offset_right = -1.0
+offset_bottom = -42.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 12
+text = "ได้รับการ์ดใหม่!"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardNameLabel" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_top = -67.0
+offset_right = 113.0
+offset_bottom = -43.0
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_colors/font_color = Color(0.207843, 0.207843, 0.219608, 1)
+theme_override_font_sizes/font_size = 6
+text = "Card_name"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="CardDescLabel" parent="." instance=ExtResource("5_i3eut")]
+layout_mode = 1
+offset_left = 9.0
+offset_top = -43.0
+offset_right = 116.0
+offset_bottom = 66.0
+theme_override_font_sizes/normal_font_size = 4
+theme_override_font_sizes/bold_font_size = 4
+theme_override_font_sizes/italics_font_size = 4
+theme_override_font_sizes/bold_italics_font_size = 4
+theme_override_font_sizes/mono_font_size = 4
+
+[node name="ExitMenuButton" parent="." instance=ExtResource("3_0gnfn")]
+layout_mode = 1
+offset_left = 105.0
+offset_top = -76.0
+offset_right = 122.0
+offset_bottom = -66.0
+
+[node name="CardPic" type="TextureRect" parent="."]
+layout_mode = 0
+offset_left = 81.0
+offset_top = 75.0
+offset_right = 123.0
+offset_bottom = 126.0
+texture = SubResource("PlaceholderTexture2D_3ccq8")
+stretch_mode = 5
+
+[connection signal="after_play_press_sound" from="ExitMenuButton" to="." method="_on_exit_menu_button_after_play_press_sound"]

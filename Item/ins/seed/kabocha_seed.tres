@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Item" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_icon.tres" id="1_13l6x"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_jwmq6"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_1.tres" id="3_cq7al"]
+[ext_resource type="Script" path="res://Item/ItemStrategySeed.gd" id="3_nuhby"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_2.tres" id="4_wpfi2"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_3.tres" id="5_n22tc"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_4.tres" id="6_3temy"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_5.tres" id="7_oii23"]
+[ext_resource type="Texture2D" path="res://img_data/item/pumpkin_seed_0.tres" id="9_tbisi"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="10_ws42q"]
+
+[sub_resource type="Resource" id="Resource_3q376"]
+script = ExtResource("3_nuhby")
+grow_time_sec = 3.0
+crop_generate_oxygen = 20
+seed_texture = ExtResource("9_tbisi")
+crop_grow_textures = Array[Texture]([ExtResource("3_cq7al"), ExtResource("4_wpfi2"), ExtResource("5_n22tc"), ExtResource("6_3temy"), ExtResource("7_oii23")])
+product_item_filepath = "res://Item/ins/product/kabocha.tres"
+
+[sub_resource type="Resource" id="Resource_1i8ck"]
+script = ExtResource("10_ws42q")
+buy_price = 12
+
+[resource]
+script = ExtResource("1_jwmq6")
+item_name = "เมล็ดฟักทอง"
+description = ""
+quantity = 1
+icon = ExtResource("1_13l6x")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_3q376"), SubResource("Resource_1i8ck")])

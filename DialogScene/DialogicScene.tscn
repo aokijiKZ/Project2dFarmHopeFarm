@@ -1,0 +1,58 @@
+[gd_scene load_steps=7 format=3 uid="uid://dh3w4k6nxcggi"]
+
+[ext_resource type="Script" path="res://DialogScene/DialogicScene.gd" id="1_ox7t6"]
+[ext_resource type="PackedScene" uid="uid://b2uof0ddav33m" path="res://MyButton/MyButton.tscn" id="2_f5yji"]
+[ext_resource type="Texture2D" uid="uid://ucelme2cbb6t" path="res://DialogScene/skip.png" id="3_3jk06"]
+[ext_resource type="Texture2D" uid="uid://bshpg0qm8c0d8" path="res://DialogScene/skip2.png" id="4_mbxif"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_kw0to"]
+texture = ExtResource("3_3jk06")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 32, 20)
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_14sqf"]
+texture = ExtResource("4_mbxif")
+texture_margin_left = 3.0
+texture_margin_top = 3.0
+texture_margin_right = 3.0
+texture_margin_bottom = 3.0
+region_rect = Rect2(0, 0, 32, 20)
+
+[node name="DialogicScene" type="Control"]
+process_mode = 3
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+mouse_filter = 2
+script = ExtResource("1_ox7t6")
+dialogic_timeline_path = "res://dialogic/Timeline/intro.dtl"
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+layer = 30
+
+[node name="SkipButton" parent="CanvasLayer" instance=ExtResource("2_f5yji")]
+anchors_preset = 1
+anchor_left = 1.0
+anchor_top = 0.0
+anchor_right = 1.0
+anchor_bottom = 0.0
+offset_left = -53.0
+offset_top = 10.0
+offset_right = -13.0
+offset_bottom = 32.0
+grow_horizontal = 0
+grow_vertical = 1
+theme_override_font_sizes/font_size = 10
+theme_override_styles/normal = SubResource("StyleBoxTexture_kw0to")
+theme_override_styles/hover = SubResource("StyleBoxTexture_14sqf")
+theme_override_styles/pressed = SubResource("StyleBoxTexture_kw0to")
+text = "ข้าม"
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]
+[connection signal="after_play_press_sound" from="CanvasLayer/SkipButton" to="." method="_on_skip_button_after_play_press_sound"]

@@ -1,0 +1,72 @@
+[gd_scene load_steps=9 format=3 uid="uid://btoserc88d8ts"]
+
+[ext_resource type="Script" path="res://Mine/Mine.gd" id="1_tku4t"]
+[ext_resource type="Texture2D" uid="uid://dmxfbil46r4uc" path="res://Mine/rock_broken_0.tres" id="2_fimar"]
+[ext_resource type="Texture2D" uid="uid://b2l2odv74thv7" path="res://Mine/rock_normal_0.tres" id="2_qlbtd"]
+[ext_resource type="Texture2D" uid="uid://cl0rqebi3f5fc" path="res://Mine/rock_destroyed_2.tres" id="3_qam1g"]
+[ext_resource type="PackedScene" uid="uid://btpi7ju63ymxc" path="res://EmptyGround/EmptyGround.tscn" id="5_eo1hj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_efksf"]
+radius = 4.0
+height = 14.0
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_1uhs2"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_fimar")
+}],
+"loop": true,
+"name": &"broken",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_qam1g")
+}],
+"loop": true,
+"name": &"destroyed",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_qlbtd")
+}],
+"loop": true,
+"name": &"normal",
+"speed": 5.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_lxj81"]
+radius = 5.0
+
+[node name="Mine" type="Node2D"]
+script = ExtResource("1_tku4t")
+empty_ground_object_packed_scene = ExtResource("5_eo1hj")
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_efksf")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+self_modulate = Color(1, 1, 0.5, 1)
+texture_filter = 1
+position = Vector2(0, -6)
+sprite_frames = SubResource("SpriteFrames_1uhs2")
+animation = &"normal"
+autoplay = "normal"
+frame_progress = 0.657197
+
+[node name="pickaxe_hurt_box" type="Area2D" parent="."]
+collision_layer = 64
+collision_mask = 64
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="pickaxe_hurt_box"]
+position = Vector2(0, -3)
+rotation = 1.5708
+shape = SubResource("CircleShape2D_lxj81")
+
+[connection signal="area_entered" from="pickaxe_hurt_box" to="." method="_on_pickaxe_hurt_box_area_entered"]

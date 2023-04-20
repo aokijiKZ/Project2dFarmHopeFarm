@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://dk6a8qcb6snnq"]
+
+[ext_resource type="Script" path="res://Setting/Setting.gd" id="1_ii5oy"]
+
+[node name="Setting" type="Node2D"]
+script = ExtResource("1_ii5oy")
+
+[connection signal="tree_exiting" from="." to="." method="_on_tree_exiting"]

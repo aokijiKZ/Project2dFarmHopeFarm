@@ -1,0 +1,7 @@
+[gd_resource type="AtlasTexture" load_steps=2 format=3]
+
+[ext_resource type="Texture2D" uid="uid://lb7ux2poee8u" path="res://MouseCursor/mouse_cursors.png" id="1_wac3i"]
+
+[resource]
+atlas = ExtResource("1_wac3i")
+region = Rect2(143, 31, 9, 9)

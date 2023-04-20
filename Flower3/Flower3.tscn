@@ -1,0 +1,17 @@
+[gd_scene load_steps=3 format=3 uid="uid://clkejfpchb0er"]
+
+[ext_resource type="Texture2D" uid="uid://cjsui4qo8sgrj" path="res://Flower3/img/Flower3.tres" id="1_m2brj"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_e7vqu"]
+radius = 1.0
+height = 10.0
+
+[node name="Flower3" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_e7vqu")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0.5, -4)
+texture = ExtResource("1_m2brj")

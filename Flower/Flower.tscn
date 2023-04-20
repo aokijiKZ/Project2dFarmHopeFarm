@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://cn34omj0x8os4"]
+
+[ext_resource type="Texture2D" uid="uid://sbcqgxdonlan" path="res://Flower/img/rock.tres" id="1_23lw0"]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p4rcx"]
+radius = 2.0
+height = 10.0
+
+[node name="Flower" type="StaticBody2D"]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(0, -2)
+rotation = 1.5708
+shape = SubResource("CapsuleShape2D_p4rcx")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(0, -7)
+texture = ExtResource("1_23lw0")
+metadata/_edit_lock_ = true

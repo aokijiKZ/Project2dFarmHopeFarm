@@ -1,0 +1,32 @@
+[gd_resource type="Resource" script_class="Item" load_steps=13 format=3]
+
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_icon.tres" id="1_rx7or"]
+[ext_resource type="Script" path="res://Item/Item.gd" id="1_yp2bn"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_1.tres" id="3_uqnvj"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_2.tres" id="4_vof70"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_3.tres" id="5_6roo1"]
+[ext_resource type="Script" path="res://Item/ItemStrategyBuy.gd" id="5_56fr0"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_4.tres" id="6_dod5c"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_5.tres" id="7_6p4dg"]
+[ext_resource type="Script" path="res://Item/ItemStrategySeed.gd" id="8_e7na8"]
+[ext_resource type="Texture2D" path="res://img_data/item/carrot_seed_0.tres" id="9_hsgco"]
+
+[sub_resource type="Resource" id="Resource_t0fyt"]
+script = ExtResource("8_e7na8")
+grow_time_sec = 1.0
+crop_generate_oxygen = 5
+seed_texture = ExtResource("9_hsgco")
+crop_grow_textures = Array[Texture]([ExtResource("3_uqnvj"), ExtResource("4_vof70"), ExtResource("5_6roo1"), ExtResource("6_dod5c"), ExtResource("7_6p4dg")])
+product_item_filepath = "res://Item/ins/product/carrot.tres"
+
+[sub_resource type="Resource" id="Resource_ptpfq"]
+script = ExtResource("5_56fr0")
+buy_price = 5
+
+[resource]
+script = ExtResource("1_yp2bn")
+item_name = "เมล็ดแครอท"
+description = ""
+quantity = 1
+icon = ExtResource("1_rx7or")
+strategies = Array[Resource("res://Item/ItemStrategy.gd")]([SubResource("Resource_t0fyt"), SubResource("Resource_ptpfq")])

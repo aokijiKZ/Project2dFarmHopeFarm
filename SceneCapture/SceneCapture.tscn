@@ -1,0 +1,8 @@
+[gd_scene load_steps=2 format=3 uid="uid://b85b1mj5bn722"]
+
+[ext_resource type="Script" path="res://SceneCapture/SceneCapture.gd" id="1_4ebg4"]
+
+[node name="SceneCapture" type="SubViewport"]
+canvas_item_default_texture_filter = 0
+render_target_update_mode = 4
+script = ExtResource("1_4ebg4")
